@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 
 
-const routes: Routes = [{
-  path: '',
-  component: PesquisaComponent
-}];
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () => import('./modules/public/public.module').then(module => module.PublicModule),
+  },
+  {
+    path: '',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
