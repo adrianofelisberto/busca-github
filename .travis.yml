@@ -1,0 +1,29 @@
+
+language: node_js
+node_js:
+    - "12"
+dist: trusty
+addons:
+    chrome: stable
+    sonarcloud:
+      organization: "adrianofelisberto"
+      token:
+        secure: $SONARCLOUD_ACCESS_TOKEN
+branches:
+  only:
+    - master
+    - develop
+
+script:
+  - npm run lint
+  - npm run test
+  - npm run sonar
+
+deploy:
+  provider: netlify
+  site: $NETLIFY_SITE_ID
+  auth: $NETLIFY_ACCESS_TOKEN
+  dir: dist
+  skip_cleanup: true
+  on:
+    branch: master
