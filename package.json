@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test",
+    "test": "ng test --no-watch --code-coverage --no-progress --browsers=ChromeHeadlessCI",
     "sonar": "sonar-scanner",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -39,7 +39,9 @@
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
+    "karma-jasmine-diff-reporter": "^2.0.0",
     "karma-jasmine-html-reporter": "^1.4.2",
+    "karma-mocha-reporter": "^2.2.5",
     "protractor": "~5.4.3",
     "sonar-scanner": "^3.1.0",
     "ts-node": "~8.3.0",
