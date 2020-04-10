@@ -21,10 +21,6 @@ script:
   - npm run test
   - npm run sonar
 
-skip_cleanup: true
-on:
-  branch: master
-
 before_deploy:
   - npm run build
 
@@ -34,3 +30,6 @@ deploy:
   auth: $NETLIFY_ACCESS_TOKEN
   dir: dist
   edge: true
+  skip_cleanup: true
+  on:
+    branch: master
