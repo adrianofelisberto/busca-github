@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 
 
 const routes: Routes = [{
   path: '',
-  redirectTo: 'public',
-  pathMatch: 'full'
+  component: PesquisaComponent
 }];
 
 @NgModule({
