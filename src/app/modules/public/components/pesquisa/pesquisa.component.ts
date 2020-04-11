@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { GithubService } from '../../services/github.service';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
+import { Adicionar } from 'src/app/modules/core/consts/action.const';
 
 @Component({
   selector: 'app-pesquisa',
@@ -20,6 +23,7 @@ export class PesquisaComponent {
 
   constructor(
     private gitHubService: GithubService,
+    private store: Store<UsuarioGitHub>,
     private router: Router
   ) { }
 
@@ -32,8 +36,9 @@ export class PesquisaComponent {
   pesquisarUsuario(pesquisar: boolean) {
     if (pesquisar) {
       this.gitHubService.buscarUsuario('adrianofelisberto')
-        .subscribe(resposta => {
+        .subscribe(async resposta => {
           console.log(resposta);
+          await this.store.dispatch(Adicionar(resposta));
           this.router.navigate(['/resultado']);
         });
     }
