@@ -6,7 +6,7 @@ import { ImagemOctocatComponent } from './components/imagem-octocat/imagem-octoc
 
 @NgModule({
   declarations: [
-    ImagemOctocatComponent
+    ImagemOctocatComponent,
   ],
   imports: [
     CommonModule

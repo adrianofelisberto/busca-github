@@ -12,7 +12,33 @@ body {
   background-color: #E0E0E0;
 }
 
-body,
-input, button, textarea {
-  font: 400 16px Roboto, sans-serif;
+.input-group-prepend .input-group-text,
+body, input, button, textarea, span, p, h1 {
+  font: 500 16pt Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 21pt;
+}
+
+.form-control {
+  height: 3em;
+}
+
+.input-group-prepend .input-group-text {
+  color: #fff;
+  font-weight: 700;
+}
+
+.form-control,
+.input-group-prepend .input-group-text {
+  border: 2px solid #7CBAE6;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.input-group-prepend .input-group-text {
+  background-color: #7CBAE6;
 }

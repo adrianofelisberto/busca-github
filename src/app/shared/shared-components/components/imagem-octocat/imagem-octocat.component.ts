@@ -8,7 +8,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ImagemOctocatComponent {
 
-  @Input() tamanho = 60;
+  @Input() tamanho = 50;
 
   @HostBinding('attr.style')
   public get valorString(): any {
