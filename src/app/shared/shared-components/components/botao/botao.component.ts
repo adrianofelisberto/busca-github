@@ -7,7 +7,7 @@ import { Component, Attribute, Output, EventEmitter } from '@angular/core';
 })
 export class BotaoComponent {
 
-  @Output() eventoClique = new EventEmitter<boolean>();
+  @Output() eventoClique = new EventEmitter();
 
   constructor(
     @Attribute('placeholder') public placeholder: string = 'botão'
@@ -17,6 +17,6 @@ export class BotaoComponent {
    * Método aciona o evento de clique para o componente pai
    */
   informarClique() {
-    this.eventoClique.emit(true);
+    this.eventoClique.emit();
   }
 }
