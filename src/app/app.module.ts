@@ -6,6 +6,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
+import { StoreModule } from '@ngrx/store';
+import { CoreModule } from './modules/core/core.module';
 
 // Nova forma de configuração para o Brasil
 registerLocaleData('pt');
@@ -17,7 +19,8 @@ registerLocaleData('pt');
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

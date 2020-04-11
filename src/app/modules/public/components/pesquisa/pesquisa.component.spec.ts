@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { environment } from 'src/environments/environment';
 import { USUARIO } from '../../services/usuario.mock';
-import { UsuarioGitHub } from '../../models/usuario-github.model';
+import { UsuarioGitHub } from '../../../../shared/shared-models/models/usuario-github.model';
 
 describe('PesquisaComponent', () => {
   let component: PesquisaComponent;

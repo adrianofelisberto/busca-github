@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
-import { UsuarioGitHub } from '../models/usuario-github.model';
+import { UsuarioGitHub } from '../../../shared/shared-models/models/usuario-github.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable()
