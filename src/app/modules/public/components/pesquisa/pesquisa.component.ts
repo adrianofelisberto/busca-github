@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubService } from '../../services/github.service';
 
 @Component({
   selector: 'app-pesquisa',
@@ -13,9 +14,13 @@ export class PesquisaComponent implements OnInit {
     right: false
   };
 
-  constructor() { }
+  constructor(
+    private gitHubService: GithubService
+  ) { }
 
   ngOnInit(): void {
+    this.gitHubService.buscarUsuario('adrianofelisberto')
+      .subscribe(resposta => console.log(resposta));
   }
 
   limparPesquisa(limpar: boolean) {
