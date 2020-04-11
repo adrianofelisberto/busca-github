@@ -1,17 +1,17 @@
 <div class="container">
-  <app-titulo></app-titulo>
+  <app-titulo [loginUsuario]="usuario?.login"></app-titulo>
 
   <app-card-content>
       <div class="d-flex flex-column flex-md-row">
         <div class="d-flex flex-column justify-content-center col-12 col-md-4">
-            <img src="https://avatars3.githubusercontent.com/u/49987226?v=4" alt="foto-perfil">
-            <h4 class="text-center mt-2">Adriano Araújo Felisberto</h4>
+            <img src="{{ usuario?.avatar_url }}" alt="foto-perfil">
+            <h4 class="text-center mt-2">{{ usuario?.name }}</h4>
         </div>
         <div class="col-12 col-md-8 d-flex flex-column">
-          <p>Seguidores: 10</p>
-          <p>Seguindo: 200</p>
-          <p>Email: adrianofelisberto1990@hotmail.com</p>
-          <p>Bio: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet illo est nulla, impedit pariatur similique at fuga architecto cum consequatur distinctio minima odio unde enim magni praesentium quasi laboriosam corporis.</p>
+          <p>Seguidores: {{ usuario?.followers }}</p>
+          <p>Seguindo: {{ usuario?.following }}</p>
+          <p>Email: {{ usuario?.email }}</p>
+          <p>Bio: {{ usuario?.bio }}</p>
         </div>
       </div>
   </app-card-content>
@@ -21,6 +21,7 @@
       <app-botao
         class="col-12 col-md-6 pl-md-0"
         placeholder="Voltar"
+        (eventoClique)="voltarPesquisa()"
       ></app-botao>
       <app-botao
         class="col-12 col-md-6 mt-3 mt-md-0 pr-md-0"

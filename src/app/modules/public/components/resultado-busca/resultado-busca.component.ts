@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
 import { map } from 'rxjs/operators';
 import { Limpar } from 'src/app/modules/core/consts/action.const';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resultado-busca',
@@ -15,7 +16,7 @@ export class ResultadoBuscaComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<UsuarioGitHub>,
-    // private router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -28,12 +29,15 @@ export class ResultadoBuscaComponent implements OnInit, OnDestroy {
       })
     ).subscribe((usuario: UsuarioGitHub) => {
       this.usuario = usuario;
-      console.log('usuario', this.usuario);
     });
   }
 
   ngOnDestroy() {
     this.store.dispatch(Limpar());
+  }
+
+  voltarPesquisa() {
+    this.router.navigate(['/']);
   }
 
 }
