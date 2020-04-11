@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PesquisaComponent } from './pesquisa.component';
+import { GithubService } from '../../services/github.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('PesquisaComponent', () => {
   let component: PesquisaComponent;
@@ -8,7 +11,14 @@ describe('PesquisaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PesquisaComponent ]
+      declarations: [ PesquisaComponent ],
+      imports: [
+        HttpClientModule,
+        HttpClientTestingModule,
+      ],
+      providers: [
+        GithubService
+      ]
     })
     .compileComponents();
   }));
