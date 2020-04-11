@@ -41,4 +41,29 @@ h1 {
 
 .input-group-prepend .input-group-text {
   background-color: #7CBAE6;
+  transition: 0.4s;
+}
+
+.elemento-invalido,
+.ng-invalid.ng-touched,
+.ng-invalid.ng-dirty {
+  border-color: rgba(207, 84, 84, 0.902) !important;
+  transition: 0.4s;
+}
+
+.elemento-invalido {
+  transition: 0.4s;
+  background-color: rgba(207, 84, 84, 0.902) !important;
+  transition: 0.4s;
+}
+
+.erro {
+  min-height: 26px !important;
+
+  span {
+    font-size: 10pt;
+    font-weight: 400;
+    color:  rgba(207, 84, 84, 0.902) !important;
+    transition: 0.4s;
+  }
 }
