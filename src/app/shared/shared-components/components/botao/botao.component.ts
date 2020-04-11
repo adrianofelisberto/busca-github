@@ -10,7 +10,7 @@ export class BotaoComponent {
   @Output() eventoClique = new EventEmitter<boolean>();
 
   constructor(
-    @Attribute('placeholder') public placeholder: string = 'butão'
+    @Attribute('placeholder') public placeholder: string = 'botão'
   ) { }
 
   /**

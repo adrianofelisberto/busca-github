@@ -22,4 +22,10 @@ describe('BotaoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('deve informar que o botão foi clicado', () => {
+    spyOn(component.eventoClique, 'emit');
+    component.informarClique();
+    expect(component.eventoClique.emit).toHaveBeenCalled();
+  });
 });
