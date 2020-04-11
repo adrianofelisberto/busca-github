@@ -1,0 +1,25 @@
+@import '../../../../../assets/styles/variaveis';
+
+.btn-sistema {
+  background: $cor-principal;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0 !important;
+  width: 100%;
+
+  span {
+    font-size: 12pt;
+    color: $cor-texto;
+  }
+}
+
+button {
+  transition: filter $transicao-padrao;
+}
+
+button:hover {
+  filter: brightness(95%);
+}
+
+button:active {
+  filter: brightness(90%);
+}

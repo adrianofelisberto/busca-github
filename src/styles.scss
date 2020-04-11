@@ -1,1 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/scss/bootstrap";
+@import "./assets/styles/variaveis";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $cor-background;
+}
+
+.input-group-prepend .input-group-text,
+body, input, button, textarea, span, p, h1 {
+  font: 500 16pt Roboto, sans-serif;
+}
+
+h1 {
+  font-size: 21pt;
+}
+
+.form-control {
+  height: 3em;
+}
+
+.input-group-prepend .input-group-text {
+  color: $cor-texto;
+  font-weight: 700;
+}
+
+.form-control,
+.input-group-prepend .input-group-text {
+  border: 2px solid $cor-principal;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.input-group-prepend .input-group-text {
+  background-color: $cor-principal;
+  transition: $transicao-media;
+}
+
+.elemento-invalido,
+.ng-invalid.ng-touched,
+.ng-invalid.ng-dirty {
+  border-color: $cor-erro !important;
+  transition: $transicao-media;
+}
+
+.elemento-invalido {
+  transition: $transicao-media;
+  background-color: $cor-erro !important;
+}
+
+.erro {
+  min-height: 26px !important;
+
+  span {
+    font-size: 10pt;
+    font-weight: 400;
+    color:  $cor-erro !important;
+    transition: $transicao-media;
+  }
+}
