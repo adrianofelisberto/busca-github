@@ -39,7 +39,7 @@ export class PesquisaComponent {
         .subscribe(async resposta => {
           console.log(resposta);
           await this.store.dispatch(Adicionar(resposta));
-          this.router.navigate(['/resultado']);
+          this.router.navigate(['resultado/adrianofelisberto']);
         });
     }
   }
