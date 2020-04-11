@@ -13,18 +13,19 @@
       <input [formControl]="username" type="text" class="form-control" placeholder="Usuário de Login" aria-label="usuario">
     </div>
     <div class="erro col-12 col-md-6 mb-2">
-      <span *ngIf="campoPesquisaInvalido()">O compo de pesquisa deve conter ao menos 3 caracteres</span>
+      <span *ngIf="verificarMensagem('required')">Campo obrigatório</span>
+      <span *ngIf="verificarMensagem('minlength')">O campo deve conter ao menos 3 caracteres</span>
     </div>
     <app-botoes-grupo-content class="col-12 col-md-6">
       <app-botao
         class="col-12 col-md-6"
         placeholder="Limpar Pesquisa"
-        (eventoClique)="limparPesquisa($event)"
+        (eventoClique)="limparPesquisa()"
       ></app-botao>
       <app-botao
         class="col-12 col-md-6 mt-3 mt-md-0"
         placeholder="Pesquisar Usuário"
-        (eventoClique)="pesquisarUsuario($event)"
+        (eventoClique)="pesquisarUsuario()"
       ></app-botao>
     </app-botoes-grupo-content>
   </div>
