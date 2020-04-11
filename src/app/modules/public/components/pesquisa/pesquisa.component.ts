@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GithubService } from '../../services/github.service';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pesquisa',
@@ -18,7 +19,8 @@ export class PesquisaComponent {
   };
 
   constructor(
-    private gitHubService: GithubService
+    private gitHubService: GithubService,
+    private router: Router
   ) { }
 
   limparPesquisa(limpar: boolean) {
@@ -30,7 +32,10 @@ export class PesquisaComponent {
   pesquisarUsuario(pesquisar: boolean) {
     if (pesquisar) {
       this.gitHubService.buscarUsuario('adrianofelisberto')
-        .subscribe(resposta => console.log(resposta));
+        .subscribe(resposta => {
+          console.log(resposta);
+          this.router.navigate(['/resultado']);
+        });
     }
   }
 

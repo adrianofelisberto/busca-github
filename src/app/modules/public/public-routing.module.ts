@@ -2,17 +2,26 @@ import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
+import { ResultadoBuscaComponent } from './components/resultado-busca/resultado-busca.component';
 
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'pesquisa',
-    pathMatch: 'full'
   },
   {
     path: 'pesquisa',
-    component: PesquisaComponent
+    children: [
+      {
+        path: '',
+        component: PesquisaComponent,
+      },
+      {
+        path: 'resultado',
+        component: ResultadoBuscaComponent
+      }
+    ]
   }
 ];
 

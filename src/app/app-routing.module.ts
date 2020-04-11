@@ -6,11 +6,6 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./modules/public/public.module').then(module => module.PublicModule),
-  },
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
   }
 ];
 
