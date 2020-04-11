@@ -18,7 +18,7 @@ const routes: Routes = [
         component: PesquisaComponent,
       },
       {
-        path: 'resultado/:username',
+        path: 'resultado',
         component: ResultadoBuscaComponent
       }
     ]
