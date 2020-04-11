@@ -1,9 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
 import { Limpar } from 'src/app/modules/core/consts/action.const';
 
 @Component({
@@ -17,7 +15,7 @@ export class ResultadoBuscaComponent implements OnInit, OnDestroy {
 
   constructor(
     private store: Store<UsuarioGitHub>,
-    private router: Router
+    // private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +24,7 @@ export class ResultadoBuscaComponent implements OnInit, OnDestroy {
         if (valor.usuario) {
           return valor.usuario;
         }
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       })
     ).subscribe((usuario: UsuarioGitHub) => {
       this.usuario = usuario;
