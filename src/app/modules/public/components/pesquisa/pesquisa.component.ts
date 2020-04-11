@@ -18,4 +18,16 @@ export class PesquisaComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  limparPesquisa(limpar: boolean) {
+    if (limpar) {
+      console.log('limpar pesquisa');
+    }
+  }
+
+  pesquisarUsuario(pesquisar: boolean) {
+    if (pesquisar) {
+      console.log('pesquisar usuário');
+    }
+  }
+
 }
