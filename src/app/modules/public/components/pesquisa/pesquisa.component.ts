@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GithubService } from '../../services/github.service';
 import { FormControl, Validators } from '@angular/forms';
 
@@ -7,7 +7,7 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: './pesquisa.component.html',
   styleUrls: ['./pesquisa.component.scss']
 })
-export class PesquisaComponent implements OnInit {
+export class PesquisaComponent {
 
   username = new FormControl(null, [Validators.required, Validators.minLength(3)]);
 
@@ -21,20 +21,16 @@ export class PesquisaComponent implements OnInit {
     private gitHubService: GithubService
   ) { }
 
-  ngOnInit(): void {
-    this.gitHubService.buscarUsuario('adrianofelisberto')
-      .subscribe(resposta => console.log(resposta));
-  }
-
   limparPesquisa(limpar: boolean) {
     if (limpar) {
-      console.log(this.username.value);
+      this.username.reset();
     }
   }
 
   pesquisarUsuario(pesquisar: boolean) {
     if (pesquisar) {
-      console.log('pesquisar usuário');
+      this.gitHubService.buscarUsuario('adrianofelisberto')
+        .subscribe(resposta => console.log(resposta));
     }
   }
 
