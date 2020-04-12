@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ResultadoBuscaComponent } from './resultado-busca.component';
 import { PesquisaComponent } from '../pesquisa/pesquisa.component';
 import { CoreModule } from 'src/app/modules/core/core.module';
+import { GithubService } from '../../services/github.service';
 
 describe('ResultadoBuscaComponent', () => {
   let component: ResultadoBuscaComponent;
@@ -42,6 +43,9 @@ describe('ResultadoBuscaComponent', () => {
         RouterTestingModule.withRoutes(
           [{path: '', component: PesquisaComponent}]
         )
+      ],
+      providers: [
+        GithubService,
       ]
     })
     .compileComponents();

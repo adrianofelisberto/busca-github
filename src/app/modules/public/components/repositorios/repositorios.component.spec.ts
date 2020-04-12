@@ -19,6 +19,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RepositoriosComponent } from './repositorios.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { PesquisaComponent } from '../pesquisa/pesquisa.component';
+import { ResultadoBuscaComponent } from '../resultado-busca/resultado-busca.component';
+import { GithubService } from '../../services/github.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('RepositoriosComponent', () => {
   let component: RepositoriosComponent;
@@ -26,7 +32,26 @@ describe('RepositoriosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RepositoriosComponent ]
+      declarations: [
+        RepositoriosComponent,
+        PesquisaComponent,
+        ResultadoBuscaComponent,
+      ],
+      imports: [
+        HttpClientModule,
+        HttpClientTestingModule,
+        RouterTestingModule.withRoutes([
+          {
+            path: '', component: PesquisaComponent
+          },
+          {
+            path: ':username', component: ResultadoBuscaComponent
+          },
+        ])
+      ],
+      providers: [
+        GithubService
+      ]
     })
     .compileComponents();
   }));

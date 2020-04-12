@@ -91,11 +91,11 @@ describe('PesquisaComponent', () => {
     const request: any = httpTestingController.expectOne(`${environment.apiUrl}/users/adrianofelisberto`);
     request.flush(USUARIO);
 
-    component.pesquisarUsuario();
+    component.pesquisarUsuario('adrianofelisberto');
   })));
 
   it('não deve chamar o serviço de busca', () => {
-    component.pesquisarUsuario();
+    component.pesquisarUsuario('adrianofelisberto');
   });
 
 
@@ -112,7 +112,7 @@ describe('PesquisaComponent', () => {
       usuarios => fail('esperado erro 404, não usuarios'),
       error  => expect(error.message).toContain('test 404 error')
     );
-    component.pesquisarUsuario();
+    component.pesquisarUsuario('adrianofelisberto');
   })));
 
 });
