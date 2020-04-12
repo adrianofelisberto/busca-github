@@ -6,11 +6,13 @@ import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { PublicRoutingModule } from './public-routing.module';
 import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
 import { GithubService } from './services/github.service';
+import { ResultadoBuscaComponent } from './components/resultado-busca/resultado-busca.component';
 
 
 @NgModule({
   declarations: [
-    PesquisaComponent
+    PesquisaComponent,
+    ResultadoBuscaComponent
   ],
   imports: [
     CommonModule,

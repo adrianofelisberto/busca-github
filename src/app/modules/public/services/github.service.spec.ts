@@ -4,7 +4,7 @@ import { GithubService } from './github.service';
 import { HttpClientModule, HttpBackend, HttpResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { environment } from 'src/environments/environment';
-import { USUARIO } from './usuario.mock';
+import { USUARIO } from '../../../shared/consts/usuario.mock';
 
 describe('GithubService', () => {
   let service: GithubService;

@@ -6,7 +6,6 @@
   margin: 0;
   padding: 0;
   outline: 0;
-  box-sizing: border-box;
 }
 
 body {
@@ -14,12 +13,20 @@ body {
 }
 
 .input-group-prepend .input-group-text,
-body, input, button, textarea, span, p, h1 {
+body, input, button, textarea, span, p, h1, h4 {
   font: 500 16pt Roboto, sans-serif;
+}
+
+p {
+  font-weight: 400;
 }
 
 h1 {
   font-size: 21pt;
+}
+
+p, h4 {
+  font-size: 12pt;
 }
 
 .form-control {
@@ -65,5 +72,30 @@ h1 {
     font-weight: 400;
     color:  $cor-erro !important;
     transition: $transicao-media;
+  }
+}
+
+.container {
+  margin-top: 5%;
+  max-width: 840px;
+}
+
+
+@include media-breakpoint-down(xs) {
+  .input-group-prepend .input-group-text,
+  body, input, button, textarea, span {
+    font-size: 13pt;
+  }
+
+  p, h4 {
+    font-size: 9pt;
+  }
+
+  .erro span {
+    font-size: 9pt;
+  }
+  
+  h1 {
+    font-size: 16pt;
   }
 }

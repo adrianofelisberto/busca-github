@@ -8,8 +8,11 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class ImagemOctocatComponent {
 
-  @Input() tamanho = 50;
+  @Input() tamanho = 100;
 
+  /**
+   * Acessa o atributo de style, acessa variável criada no scss, modificando o valor
+   */
   @HostBinding('attr.style')
   public get valorString(): any {
     return this.sanitizer.bypassSecurityTrustStyle(`--porcentagem-img: ${this.tamanho}%`);
