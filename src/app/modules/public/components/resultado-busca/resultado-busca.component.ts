@@ -17,27 +17,33 @@
  */
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
-import { Limpar } from 'src/app/modules/core/consts/action.const';
+import { Limpar, Adicionar } from 'src/app/modules/core/consts/action.const';
+import { PesquisaUsuario } from '../../classes/pesquisa-usuario.abstract';
+import { GithubService } from '../../services/github.service';
 
 @Component({
   selector: 'app-resultado-busca',
   templateUrl: './resultado-busca.component.html',
   styleUrls: ['./resultado-busca.component.scss']
 })
-export class ResultadoBuscaComponent implements OnInit, OnDestroy {
+export class ResultadoBuscaComponent extends PesquisaUsuario implements OnInit, OnDestroy {
 
   usuario: UsuarioGitHub;
 
   constructor(
     private store: Store<UsuarioGitHub>,
-    private router: Router
-  ) { }
+    private router: Router,
+    private route: ActivatedRoute,
+    protected gitHubService: GithubService
+  ) {
+    super(gitHubService);
+  }
 
   ngOnInit(): void {
     this.store.pipe(
@@ -48,8 +54,31 @@ export class ResultadoBuscaComponent implements OnInit, OnDestroy {
         // this.router.navigate(['/']);
       })
     ).subscribe((usuario: UsuarioGitHub) => {
-      this.usuario = usuario;
+      this.verificarAcao(usuario);
     });
+  }
+
+  verificarAcao(usuario) {
+    if (usuario) {
+      this.usuario = usuario;
+    } else {
+      this.buscarUsuarioPorParametro();
+    }
+  }
+
+  buscarUsuarioPorParametro() {
+    this.route.paramMap.subscribe(params => {
+      const username: string = params.get('username');
+      if (username) {
+        this.pesquisarUsuario(username);
+      } else {
+        this.voltarPesquisa();
+      }
+    });
+  }
+
+  funcaoSubscribe(resposta: UsuarioGitHub) {
+    this.store.dispatch(Adicionar(resposta));
   }
 
   ngOnDestroy() {
