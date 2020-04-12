@@ -26,12 +26,14 @@ import { ResultadoBuscaComponent } from './components/resultado-busca/resultado-
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { PublicRoutingModule } from './public-routing.module';
 import { GithubService } from './services/github.service';
+import { RepositoriosComponent } from './components/repositorios/repositorios.component';
 
 
 @NgModule({
   declarations: [
     PesquisaComponent,
-    ResultadoBuscaComponent
+    ResultadoBuscaComponent,
+    RepositoriosComponent
   ],
   imports: [
     CommonModule,
