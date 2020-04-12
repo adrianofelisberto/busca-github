@@ -42,16 +42,6 @@ export class RepositoriosComponent implements OnInit {
   repositorios = new Array<Repositorio>();
   repositoriosFiltrados: Array<Repositorio>;
 
-  usuario: UsuarioGitHub = {
-    avatar_url: null,
-    bio: null,
-    email: null,
-    followers: 0,
-    following: 0,
-    login: 'adrianoteste',
-    name: 'Teste'
-  };
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
