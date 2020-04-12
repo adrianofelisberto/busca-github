@@ -20,6 +20,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
 import { Location } from '@angular/common';
+import { GithubService } from '../../services/github.service';
 
 @Component({
   selector: 'app-repositorios',
@@ -39,10 +40,13 @@ export class RepositoriosComponent implements OnInit {
   };
 
   constructor(
-    private location: Location
+    private location: Location,
+    private gitHubService: GithubService
   ) { }
 
   ngOnInit(): void {
+    this.gitHubService.buscarRepositorios('adrianofelisberto')
+      .subscribe(retorno => console.log('retorno', retorno));
   }
 
   voltarResultado() {

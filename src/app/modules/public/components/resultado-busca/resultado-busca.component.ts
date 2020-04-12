@@ -89,4 +89,8 @@ export class ResultadoBuscaComponent extends PesquisaUsuario implements OnInit, 
     this.router.navigate(['/']);
   }
 
+  visualizarRepositorios() {
+    this.router.navigate([`${this.usuario.login}/repositorios`]);
+  }
+
 }

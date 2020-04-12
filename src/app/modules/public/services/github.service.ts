@@ -24,6 +24,7 @@ import { Observable } from 'rxjs';
 
 import { UsuarioGitHub } from '../../../shared/shared-models/models/usuario-github.model';
 import { environment } from 'src/environments/environment';
+import { Repositorio } from '../models/repositorio.model';
 
 @Injectable()
 export class GithubService {
@@ -63,4 +64,43 @@ export class GithubService {
         })
       );
   }
+
+  /**
+   * Busca uma lista de repositórios do usuário
+   * @param username Usuário do GitHub
+   * @returns Observable<Array<Repositorio>>
+   */
+  buscarRepositorios(username: string): Observable<Array<Repositorio>> {
+    return this.http.get<Array<Repositorio>>(`${environment.apiUrl}/users/${username}/repos`)
+      .pipe(
+        map((resposta: any[]) => {
+          const repositorios: Array<Repositorio> = resposta.map(repositorio => {
+            const {
+              description,
+              fork,
+              html_url,
+              name,
+              stargazers_count,
+              updated_at
+            } = repositorio;
+
+            const teste: Repositorio = repositorio as Repositorio;
+
+            console.log(teste);
+
+            return {
+              description,
+              fork,
+              html_url,
+              name,
+              stargazers_count,
+              updated_at
+            };
+          });
+
+          return repositorios;
+        })
+      );
+  }
+
 }
