@@ -17,10 +17,16 @@
  */
 
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { Location } from '@angular/common';
+
+import { startWith, map, debounceTime } from 'rxjs/operators';
 
 import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
-import { Location } from '@angular/common';
 import { GithubService } from '../../services/github.service';
+import { Repositorio } from '../../models/repositorio.model';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ListaUtil } from '../../utils/lista.util';
 
 @Component({
   selector: 'app-repositorios',
@@ -28,6 +34,13 @@ import { GithubService } from '../../services/github.service';
   styleUrls: ['./repositorios.component.scss']
 })
 export class RepositoriosComponent implements OnInit {
+
+  campoFiltro = new FormControl();
+
+  private username: string;
+
+  repositorios = new Array<Repositorio>();
+  repositoriosFiltrados: Array<Repositorio>;
 
   usuario: UsuarioGitHub = {
     avatar_url: null,
@@ -40,17 +53,59 @@ export class RepositoriosComponent implements OnInit {
   };
 
   constructor(
-    private location: Location,
+    private router: Router,
+    private route: ActivatedRoute,
     private gitHubService: GithubService
   ) { }
 
   ngOnInit(): void {
-    this.gitHubService.buscarRepositorios('adrianofelisberto')
-      .subscribe(retorno => console.log('retorno', retorno));
+    this.buscarUsuarioPorRota();
+    this.iniciarObservableFiltro();
+  }
+
+  buscarUsuarioPorRota() {
+    this.route.paramMap.subscribe(params => {
+      this.username = params.get('username');
+      this.buscarRespositorios();
+    });
+  }
+
+  iniciarObservableFiltro() {
+    this.campoFiltro.valueChanges.pipe(
+      debounceTime(200),
+      startWith(''),
+      map(nome => {
+        return nome ? this.filtrarLista(nome) : this.copiarListaOrdenada();
+      }
+    )).subscribe((listaFiltrada: Array<Repositorio>) => {
+      this.repositoriosFiltrados = listaFiltrada;
+    });
+  }
+
+  private filtrarLista(valor: string): Repositorio[] {
+    return this.repositorios.filter(repositorio => {
+      return repositorio.name.toLowerCase().includes(valor.trim().toLowerCase());
+    });
+  }
+
+  buscarRespositorios() {
+    this.gitHubService.buscarRepositorios(this.username)
+      .subscribe((repositorios: Repositorio[]) => {
+        this.repositorios = repositorios;
+        this.repositoriosFiltrados = this.copiarListaOrdenada();
+      });
+  }
+
+  private copiarListaOrdenada(): Array<Repositorio> {
+    return this.repositorios.slice().sort(ListaUtil.ordenarListaPorEstrela);
   }
 
   voltarResultado() {
-    this.location.back();
+    this.router.navigate([`/${this.username}`]);
+  }
+
+  voltarInicio() {
+    this.router.navigate(['/']);
   }
 
 }

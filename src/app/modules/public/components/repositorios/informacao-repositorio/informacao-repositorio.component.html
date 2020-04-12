@@ -16,20 +16,23 @@
   along with this program.  If not, see [http://www.gnu.org/licenses/].
 -->
 
+<hr>
 <div class="d-flex flex-column flex-md-row justify-content-between">
-  <h3>nome-repositorio</h3>
+  <a href="{{ repositorio?.html_url }}">
+    <h3>{{ repositorio?.name }}</h3>
+  </a>
   <span>
     <i class="fa fa-star" aria-hidden="true"></i>
-    1204
+    {{ repositorio?.stargazers_count }}
   </span>
-</div>
+</div> 
 <div class="descricao">
   <p>
-    Descrição do repositório com todas as informações necessárias
+    {{ repositorio?.description }}
   </p>
 </div>
 <div>
   <span>
-    Atualizado em 18 março 2019
+    Atualizado em {{ repositorio?.updated_at | date: 'dd/MM/y' }}
   </span>
 </div>

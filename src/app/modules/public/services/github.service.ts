@@ -77,20 +77,14 @@ export class GithubService {
           const repositorios: Array<Repositorio> = resposta.map(repositorio => {
             const {
               description,
-              fork,
               html_url,
               name,
               stargazers_count,
               updated_at
             } = repositorio;
 
-            const teste: Repositorio = repositorio as Repositorio;
-
-            console.log(teste);
-
             return {
               description,
-              fork,
               html_url,
               name,
               stargazers_count,
