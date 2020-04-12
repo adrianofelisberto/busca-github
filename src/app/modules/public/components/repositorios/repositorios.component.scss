@@ -18,12 +18,12 @@
 
 @import '../../../../../assets/styles/variaveis';
 
- hr {
+::ng-deep app-informacao-repositorio:first-child hr {
    margin-top: 0;
- }
+}
  
- .lista-repositorios {
-   max-height: 280px;
+.lista-repositorios {
+   max-height: 290px;
    overflow-y: auto;
  }
 
