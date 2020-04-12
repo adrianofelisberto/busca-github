@@ -1,17 +1,36 @@
-import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
+/***************************************************************************************************
+ * This program search an user from GitHub
+ * Copyright (C) 2020 Adriano Araújo Felisberto
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ */
 
-import { PesquisaComponent } from './pesquisa.component';
-import { GithubService } from '../../services/github.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { environment } from 'src/environments/environment';
-import { USUARIO } from '../../../../shared/consts/usuario.mock';
-import { UsuarioGitHub } from '../../../../shared/shared-models/models/usuario-github.model';
-import { CoreModule } from 'src/app/modules/core/core.module';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ResultadoBuscaComponent } from '../resultado-busca/resultado-busca.component';
+import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
+
 import { of } from 'rxjs';
+
+import { UsuarioGitHub } from '../../../../shared/shared-models/models/usuario-github.model';
+import { ResultadoBuscaComponent } from '../resultado-busca/resultado-busca.component';
+import { USUARIO } from '../../../../shared/consts/usuario.mock';
+import { GithubService } from '../../services/github.service';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CoreModule } from 'src/app/modules/core/core.module';
+import { environment } from 'src/environments/environment';
+import { PesquisaComponent } from './pesquisa.component';
 
 describe('PesquisaComponent', () => {
   let component: PesquisaComponent;
