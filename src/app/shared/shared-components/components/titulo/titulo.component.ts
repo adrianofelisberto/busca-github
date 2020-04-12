@@ -16,7 +16,7 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Attribute } from '@angular/core';
 
 @Component({
   selector: 'app-titulo',
@@ -27,7 +27,9 @@ export class TituloComponent implements OnInit {
 
   @Input() loginUsuario = '';
 
-  constructor() { }
+  constructor(
+    @Attribute('titulo') public titulo: string = ''
+  ) { }
 
   ngOnInit(): void {
   }
