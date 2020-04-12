@@ -2,10 +2,10 @@ import { async, ComponentFixture, TestBed, inject } from '@angular/core/testing'
 
 import { PesquisaComponent } from './pesquisa.component';
 import { GithubService } from '../../services/github.service';
-import { HttpClientModule, HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { environment } from 'src/environments/environment';
-import { USUARIO } from '../../services/usuario.mock';
+import { USUARIO } from '../../../../shared/consts/usuario.mock';
 import { UsuarioGitHub } from '../../../../shared/shared-models/models/usuario-github.model';
 import { CoreModule } from 'src/app/modules/core/core.module';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -89,11 +89,11 @@ describe('PesquisaComponent', () => {
     httpClientSpy.get.and.returnValue(of(errorResponse));
 
     component.username.setValue('teste');
-    // service.buscarUsuario().subscribe(
-    //   usuarios => fail('esperado erro 404, não usuarios'),
-    //   error  => expect(error.message).toContain('test 404 error')
-    // );
+    service.buscarUsuario().subscribe(
+      usuarios => fail('esperado erro 404, não usuarios'),
+      error  => expect(error.message).toContain('test 404 error')
+    );
     component.pesquisarUsuario();
   })));
- 
+
 });
