@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/adrianofelisberto/busca-github.svg?branch=master)](https://travis-ci.com/adrianofelisberto/busca-github)
+
 # BuscaGithub
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.0.

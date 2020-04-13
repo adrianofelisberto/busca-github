@@ -1,1 +1,115 @@
-/* You can add global styles to this file, and also import other style files */
+/***************************************************************************************************
+ * This program search an user from GitHub
+ * Copyright (C) 2020 Adriano Araújo Felisberto
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ */
+
+@import "~bootstrap/scss/bootstrap";
+@import "./assets/styles/variaveis";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  background-color: $cor-background;
+}
+
+.input-group-prepend .input-group-text,
+body, input, button, textarea, span, p, h1, h4 {
+  font: 500 16pt Roboto, sans-serif;
+}
+
+p {
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 21pt;
+}
+
+p, h4 {
+  font-size: 12pt;
+}
+
+.input-group-prepend .input-group-text {
+  color: $cor-texto;
+  font-weight: 700;
+}
+
+.form-control,
+.input-group-prepend .input-group-text {
+  border: 2px solid $cor-principal;
+}
+
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+.input-group-prepend .input-group-text {
+  background-color: $cor-principal;
+  transition: $transicao-media;
+}
+
+.elemento-invalido,
+.ng-invalid.ng-touched,
+.ng-invalid.ng-dirty {
+  border-color: $cor-erro !important;
+  transition: $transicao-media;
+}
+
+.elemento-invalido {
+  transition: $transicao-media;
+  background-color: $cor-erro !important;
+}
+
+.erro {
+  min-height: 26px !important;
+
+  span {
+    font-size: 10pt;
+    font-weight: 400;
+    color:  $cor-erro !important;
+    transition: $transicao-media;
+  }
+}
+
+.container {
+  margin-top: 3%;
+  max-width: 840px;
+}
+
+
+@include media-breakpoint-down(xs) {
+  .input-group-prepend .input-group-text,
+  body, input, button, textarea, span {
+    font-size: 13pt;
+  }
+
+  p, h4 {
+    font-size: 9pt;
+  }
+
+  .erro span {
+    font-size: 9pt;
+  }
+  
+  h1 {
+    font-size: 16pt;
+  }
+}

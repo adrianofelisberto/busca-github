@@ -1,0 +1,50 @@
+<!--
+  This program search an user from GitHub
+  Copyright (C) 2020 Adriano Araújo Felisberto
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see [http://www.gnu.org/licenses/].
+-->
+
+<div class="container">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+    <app-imagem-octocat [tamanho]="50"></app-imagem-octocat>
+    <div>
+      <h1>
+        Busca GitHub
+      </h1>
+    </div>
+    <div class="input-group col-12 col-md-6">
+      <div class="input-group-prepend">
+        <span [ngClass]="{'elemento-invalido': campoPesquisaInvalido()}" class="input-group-text">@</span>
+      </div>
+      <input [formControl]="username" type="text" class="form-control" placeholder="Usuário de Login" aria-label="usuario">
+    </div>
+    <div class="erro col-12 col-md-6 mb-2">
+      <span *ngIf="verificarMensagem('required')">Campo obrigatório</span>
+      <span *ngIf="verificarMensagem('pattern')">Formato de Login inválido</span>
+    </div>
+    <app-botoes-grupo-content class="col-12 col-md-6">
+      <app-botao
+        class="col-12 col-md-6"
+        placeholder="Limpar Pesquisa"
+        (eventoClique)="limparPesquisa()"
+      ></app-botao>
+      <app-botao
+        class="col-12 col-md-6 mt-3 mt-md-0"
+        placeholder="Pesquisar Usuário"
+        (eventoClique)="pesquisar()"
+      ></app-botao>
+    </app-botoes-grupo-content>
+  </div>
+</div>
