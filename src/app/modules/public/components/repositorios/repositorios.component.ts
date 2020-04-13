@@ -37,7 +37,7 @@ export class RepositoriosComponent implements OnInit {
 
   campoFiltro = new FormControl();
 
-  private username: string;
+  username: string;
 
   repositorios = new Array<Repositorio>();
   repositoriosFiltrados: Array<Repositorio>;
@@ -91,7 +91,7 @@ export class RepositoriosComponent implements OnInit {
   }
 
   voltarResultado() {
-    this.router.navigate([`/${this.username}`]);
+    this.router.navigate([`/pesquisa/${this.username}`]);
   }
 
   voltarInicio() {

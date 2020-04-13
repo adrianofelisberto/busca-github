@@ -56,9 +56,9 @@ export class PesquisaComponent extends PesquisaUsuario {
     }
   }
 
-  async funcaoSubscribe(resposta: UsuarioGitHub) {
-    await this.store.dispatch(Adicionar(resposta));
-    this.router.navigate([`${this.username.value}`]);
+  funcaoSubscribe(resposta: UsuarioGitHub) {
+    this.store.dispatch(Adicionar(resposta));
+    this.router.navigate([`/pesquisa/${this.username.value}`]);
   }
 
   campoPesquisaInvalido(): boolean {
