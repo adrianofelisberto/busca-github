@@ -22,10 +22,12 @@ import { CommonModule } from '@angular/common';
 import { ErroRoutingModule } from './erro-routing.module';
 import { PaginaNaoEncontradaComponent } from './components/pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { ErroContentComponent } from './components/erro-content/erro-content.component';
 
 @NgModule({
   declarations: [
-    PaginaNaoEncontradaComponent
+    PaginaNaoEncontradaComponent,
+    ErroContentComponent
   ],
   imports: [
     CommonModule,

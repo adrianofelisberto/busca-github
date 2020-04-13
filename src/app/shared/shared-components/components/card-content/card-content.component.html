@@ -16,6 +16,12 @@
   along with this program.  If not, see [http://www.gnu.org/licenses/].
 -->
 
-<div class="card col-12 mt-3 p-4 d-flex flex-row" [ngClass]="{'align-items-center': centralizado}">
+<div class="card col-12 mt-3 p-4 d-flex" 
+  [ngClass]="{
+    'justify-content-center': centralizadoY || centralizado,
+    'align-items-center': centralizadoX || centralizado,
+    'flex-column': flexColumn,
+    'flex-row': !flexColumn
+  }">
   <ng-content></ng-content>
 </div>

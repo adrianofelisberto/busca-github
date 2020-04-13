@@ -27,11 +27,14 @@ export class TituloComponent implements OnInit {
 
   @Input() loginUsuario;
   @Input() mostrarImagem = true;
+
+  @Input() titulo: string;
   constructor(
-    @Attribute('titulo') public titulo: string = '',
+    @Attribute('titulo') public tituloAttr: string = '',
   ) { }
 
   ngOnInit(): void {
+    this.titulo = this.titulo ? this.titulo : this.tituloAttr;
   }
 
 }

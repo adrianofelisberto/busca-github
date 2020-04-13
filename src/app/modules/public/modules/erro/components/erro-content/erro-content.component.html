@@ -18,14 +18,15 @@
 
 <div class="container">
   <app-titulo *ngIf="tituloErro" [mostrarImagem]="false" [titulo]="tituloErro"></app-titulo>
-  <app-card-content>
+  <app-card-content [centralizadoX]="true" [flexColumn]="true">
     <ng-content></ng-content>
   </app-card-content>
 
   <div class="col-md-3 ml-auto mt-3">
     <app-botao
       class="col-12 pl-md-0"
-      placeholder="Home"
+      placeholder="Início"
+      (eventoClique)="voltarInicio()"
     ></app-botao>
   </div>
 </div>

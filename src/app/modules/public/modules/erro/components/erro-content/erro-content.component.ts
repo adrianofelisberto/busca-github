@@ -17,6 +17,8 @@
  */
 
 import { Component, OnInit, Attribute } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavegacaoService } from 'src/app/shared/shared-service/services/navegacao.service';
 
 @Component({
   selector: 'app-erro-content',
@@ -26,12 +28,16 @@ import { Component, OnInit, Attribute } from '@angular/core';
 export class ErroContentComponent implements OnInit {
   tituloErro: string;
   constructor(
-    @Attribute('erro') public erro: number
-  ) {
-  }
+    @Attribute('erro') public erro: number,
+    private navegacaoService: NavegacaoService
+  ) {}
 
   ngOnInit(): void {
     this.tituloErro = `Erro ${this.erro}`;
+  }
+
+  voltarInicio() {
+    this.navegacaoService.paginaInicial();
   }
 
 }

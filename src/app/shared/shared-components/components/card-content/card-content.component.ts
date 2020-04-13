@@ -24,5 +24,8 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-content.component.scss']
 })
 export class CardContentComponent {
-  @Input() centralizado = true;
+  @Input() centralizadoY = false;
+  @Input() centralizadoX = false;
+  @Input() centralizado = false;
+  @Input() flexColumn = false;
 }
