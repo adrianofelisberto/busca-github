@@ -23,6 +23,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { SharedComponentsModule } from './shared/shared-components/shared-components.module';
 import { CoreModule } from './modules/core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +39,7 @@ registerLocaleData(localePt, PT_BR);
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    SharedComponentsModule,
     CoreModule
   ],
   providers: [
