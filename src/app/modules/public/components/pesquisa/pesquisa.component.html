@@ -34,17 +34,16 @@
       <span *ngIf="verificarMensagem('required')">Campo obrigatório</span>
       <span *ngIf="verificarMensagem('pattern')">Formato de Login inválido</span>
     </div>
-    <app-botoes-grupo-content class="col-12 col-md-6">
-      <app-botao
-        class="col-12 col-md-6"
-        placeholder="Limpar Pesquisa"
-        (eventoClique)="limparPesquisa()"
-      ></app-botao>
-      <app-botao
-        class="col-12 col-md-6 mt-3 mt-md-0"
-        placeholder="Pesquisar Usuário"
-        (eventoClique)="pesquisar()"
-      ></app-botao>
-    </app-botoes-grupo-content>
+      
+    <div class="col-12 col-md-6">
+
+      <app-botoes
+        [centralizado]="true"
+        placeholderBtn1="Limpar"
+        placeholderBtn2="Pesquisar"
+        (eventoCliqueBotao1)="limparPesquisa()"
+        (eventoCliqueBotao2)="pesquisar()"
+      ></app-botoes>
+    </div>
   </div>
 </div>

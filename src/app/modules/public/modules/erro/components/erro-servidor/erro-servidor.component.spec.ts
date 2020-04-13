@@ -16,15 +16,28 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
- @import "~bootstrap/scss/bootstrap";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-img {
-  width: var(--porcentagem-img);
-  min-width: 100px;
-}
+import { ErroServidorComponent } from './erro-servidor.component';
 
-@include media-breakpoint-down(sm) {
-  img {
-    max-height: 192px;
-  }
-}
+describe('ErroServidorComponent', () => {
+  let component: ErroServidorComponent;
+  let fixture: ComponentFixture<ErroServidorComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ ErroServidorComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ErroServidorComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

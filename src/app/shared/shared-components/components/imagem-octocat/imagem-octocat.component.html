@@ -17,5 +17,7 @@
 -->
 
 <div class="d-flex justify-content-center">
-  <img src="assets/images/octocat-default.png" alt="octocat">
+  <img *ngIf="!imgNaoEncontrado && !imgErroServidor" src="assets/images/octocat-default.png" alt="octocat">
+  <img *ngIf="imgErroServidor" src="assets/images/octocat-erro.png" alt="octocat">
+  <img *ngIf="imgNaoEncontrado" src="assets/images/octocat-obi-wan.png" alt="octocat">
 </div>

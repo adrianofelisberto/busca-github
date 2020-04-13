@@ -17,7 +17,7 @@
  */
 
 import { Component, OnInit, Attribute } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { NavegacaoService } from 'src/app/shared/shared-service/services/navegacao.service';
 
 @Component({
@@ -29,6 +29,7 @@ export class ErroContentComponent implements OnInit {
   tituloErro: string;
   constructor(
     @Attribute('erro') public erro: number,
+    @Attribute('mensagemErro') public mensagemErro: string,
     private navegacaoService: NavegacaoService
   ) {}
 

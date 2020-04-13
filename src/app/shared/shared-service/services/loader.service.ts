@@ -16,14 +16,20 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
-@Component({
-  selector: 'app-botoes-grupo-content',
-  template: `
-  <div class="d-flex flex-column flex-md-row">
-    <ng-content></ng-content>
-  </div>
-  `
+@Injectable({
+  providedIn: 'root'
 })
-export class BotoesGrupoContentComponent { }
+export class LoaderService {
+  carregar = new Subject<boolean>();
+
+  mostrar() {
+    this.carregar.next(true);
+  }
+
+  ocultar() {
+    this.carregar.next(false);
+  }
+}

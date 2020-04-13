@@ -16,36 +16,30 @@
   along with this program.  If not, see [http://www.gnu.org/licenses/].
 -->
 
-<div class="container">
-  <app-titulo titulo="Resultado da Busca" [loginUsuario]="usuario?.login"></app-titulo>
-
-  <app-card-content [centralizadoX]="true">
-      <div class="d-flex flex-column flex-md-row">
-        <div class="d-flex flex-column justify-content-center col-12 col-md-4">
-            <img src="{{ usuario?.avatar_url }}" alt="foto-perfil">
-            <h4 class="text-center mt-2">{{ usuario?.name }}</h4>
+<div class="d-flex justify-content-center">
+  <div class="container">
+    <app-titulo titulo="Resultado da Busca" [loginUsuario]="usuario?.login"></app-titulo>
+  
+    <app-card-content [centralizadoX]="true">
+        <div class="d-flex flex-column flex-md-row">
+          <div class="d-flex flex-column justify-content-center col-12 col-md-4">
+              <img src="{{ usuario?.avatar_url }}" alt="foto-perfil">
+              <h4 class="text-center mt-2">{{ usuario?.name }}</h4>
+          </div>
+          <div class="col-12 col-md-8 d-flex flex-column">
+            <p>Seguidores: {{ usuario?.followers }}</p>
+            <p>Seguindo: {{ usuario?.following }}</p>
+            <p>Email: {{ usuario?.email }}</p>
+            <p>Bio: {{ usuario?.bio }}</p>
+          </div>
         </div>
-        <div class="col-12 col-md-8 d-flex flex-column">
-          <p>Seguidores: {{ usuario?.followers }}</p>
-          <p>Seguindo: {{ usuario?.following }}</p>
-          <p>Email: {{ usuario?.email }}</p>
-          <p>Bio: {{ usuario?.bio }}</p>
-        </div>
-      </div>
-  </app-card-content>
-
-  <div class="col-md-6 ml-auto">
-    <app-botoes-grupo-content class="col-12 col-md-6">
-      <app-botao
-        class="col-12 col-md-6 pl-md-0"
-        placeholder="Voltar"
-        (eventoClique)="voltarPesquisa()"
-      ></app-botao>
-      <app-botao
-        class="col-12 col-md-6 mt-3 mt-md-0 pr-md-0"
-        placeholder="Ver Repositórios"
-        (eventoClique)="visualizarRepositorios()"
-      ></app-botao>
-    </app-botoes-grupo-content>
+    </app-card-content>
+    
+    <app-botoes
+      placeholderBtn1="Voltar"
+      placeholderBtn2="Ver Repositórios"
+      (eventoCliqueBotao1)="voltarPesquisa()"
+      (eventoCliqueBotao2)="visualizarRepositorios()"
+    ></app-botoes>
   </div>
 </div>

@@ -16,15 +16,19 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
- @import "~bootstrap/scss/bootstrap";
+import { TestBed } from '@angular/core/testing';
 
-img {
-  width: var(--porcentagem-img);
-  min-width: 100px;
-}
+import { LoaderService } from './loader.service';
 
-@include media-breakpoint-down(sm) {
-  img {
-    max-height: 192px;
-  }
-}
+describe('LoaderService', () => {
+  let service: LoaderService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(LoaderService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

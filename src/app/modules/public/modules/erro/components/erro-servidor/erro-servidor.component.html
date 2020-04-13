@@ -16,19 +16,6 @@
   along with this program.  If not, see [http://www.gnu.org/licenses/].
 -->
 
-<div class="container">
-  <app-titulo *ngIf="tituloErro" [mostrarImagem]="false" [titulo]="tituloErro"></app-titulo>
-  <app-card-content [centralizadoX]="true" [flexColumn]="true">
-    <h1>Desculpe!</h1>
-    <ng-content></ng-content>
-    <span>{{ mensagemErro }}</span>
-  </app-card-content>
-
-  <div class="col-md-3 ml-auto mt-3">
-    <app-botao
-      class="col-12 pl-md-0"
-      placeholder="Início"
-      (eventoClique)="voltarInicio()"
-    ></app-botao>
-  </div>
-</div>
+<app-erro-content mensagemErro="Aconteceu algum problema no servidor" erro="500">
+  <app-imagem-octocat [imgErroServidor]="true"></app-imagem-octocat>
+</app-erro-content>

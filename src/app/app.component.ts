@@ -17,10 +17,16 @@
  */
 
 import { Component } from '@angular/core';
+import { LoaderService } from './shared/shared-service/services/loader.service';
+import { Loader } from './shared/shared-models/classes/loader.abstratc';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {}
+export class AppComponent extends Loader {
+  constructor(loaderService: LoaderService) {
+    super(loaderService);
+  }
+}

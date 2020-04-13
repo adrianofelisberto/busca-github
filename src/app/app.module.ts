@@ -18,16 +18,18 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { registerLocaleData } from '@angular/common';
-import { NgModule } from '@angular/core';
+import localePt from '@angular/common/locales/pt';
+import { NgModule, LOCALE_ID } from '@angular/core';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { SharedComponentsModule } from './shared/shared-components/shared-components.module';
 import { CoreModule } from './modules/core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// Nova forma de configuração para o Brasil
-registerLocaleData('pt');
+const PT_BR = 'pt-BR';
+registerLocaleData(localePt, PT_BR);
 
 @NgModule({
   declarations: [
@@ -37,9 +39,12 @@ registerLocaleData('pt');
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    CoreModule,
+    SharedComponentsModule,
+    CoreModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: PT_BR },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

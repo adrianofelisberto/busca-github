@@ -16,28 +16,30 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit, Attribute, Output, EventEmitter, Input } from '@angular/core';
 
-import { BotoesGrupoContentComponent } from './botoes-grupo-content.component';
+@Component({
+  selector: 'app-botoes',
+  templateUrl: './botoes.component.html',
+  styleUrls: ['./botoes.component.scss']
+})
+export class BotoesComponent implements OnInit {
 
-describe('BotoesGrupoContentComponent', () => {
-  let component: BotoesGrupoContentComponent;
-  let fixture: ComponentFixture<BotoesGrupoContentComponent>;
+  @Input() centralizado = false;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ BotoesGrupoContentComponent ]
-    })
-    .compileComponents();
-  }));
+  @Output() eventoCliqueBotao1 = new EventEmitter();
+  @Output() eventoCliqueBotao2 = new EventEmitter();
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(BotoesGrupoContentComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  constructor(
+    @Attribute('placeholderBtn1') public placeholderBtn1: string = 'Botão 1',
+    @Attribute('placeholderBtn2') public placeholderBtn2: string = 'Botão 2',
+  ) { }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit(): void {
+  }
+
+  acaoBotao(evento) {
+    evento.emit();
+  }
+
+}

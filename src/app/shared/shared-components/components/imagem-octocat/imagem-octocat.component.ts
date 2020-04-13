@@ -27,6 +27,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ImagemOctocatComponent {
 
   @Input() tamanho = 100;
+  @Input() imgNaoEncontrado = false;
+  @Input() imgErroServidor = false;
 
   /**
    * Acessa o atributo de style, acessa variável criada no scss, modificando o valor

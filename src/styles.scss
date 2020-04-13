@@ -91,9 +91,7 @@ p, h4 {
 
 .container {
   margin-top: 3%;
-  max-width: 840px;
 }
-
 
 @include media-breakpoint-down(xs) {
   .input-group-prepend .input-group-text,

@@ -19,11 +19,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { BotoesGrupoContentComponent } from './components/botoes-grupo-content/botoes-grupo-content.component';
 import { ImagemOctocatComponent } from './components/imagem-octocat/imagem-octocat.component';
 import { CardContentComponent } from './components/card-content/card-content.component';
 import { TituloComponent } from './components/titulo/titulo.component';
 import { BotaoComponent } from './components/botao/botao.component';
+import { BotoesComponent } from './components/botoes/botoes.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
@@ -31,9 +32,10 @@ import { BotaoComponent } from './components/botao/botao.component';
   declarations: [
     ImagemOctocatComponent,
     BotaoComponent,
-    BotoesGrupoContentComponent,
     TituloComponent,
     CardContentComponent,
+    BotoesComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule
@@ -41,9 +43,10 @@ import { BotaoComponent } from './components/botao/botao.component';
   exports: [
     ImagemOctocatComponent,
     BotaoComponent,
-    BotoesGrupoContentComponent,
     TituloComponent,
     CardContentComponent,
+    BotoesComponent,
+    LoaderComponent
   ]
 })
 export class SharedComponentsModule { }

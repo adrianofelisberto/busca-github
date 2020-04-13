@@ -16,15 +16,11 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
- @import "~bootstrap/scss/bootstrap";
+import { Component } from '@angular/core';
 
-img {
-  width: var(--porcentagem-img);
-  min-width: 100px;
-}
-
-@include media-breakpoint-down(sm) {
-  img {
-    max-height: 192px;
-  }
-}
+@Component({
+  selector: 'app-erro-servidor',
+  templateUrl: './erro-servidor.component.html',
+  styleUrls: ['./erro-servidor.component.scss']
+})
+export class ErroServidorComponent { }
