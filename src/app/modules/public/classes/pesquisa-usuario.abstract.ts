@@ -30,6 +30,7 @@ export abstract class PesquisaUsuario {
   ) {}
 
   abstract funcaoSubscribe(resposta: UsuarioGitHub);
+  redirecionarUsuario() {}
 
   pesquisarUsuario(username: string) {
     this.gitHubService.buscarUsuario(username)
@@ -39,6 +40,7 @@ export abstract class PesquisaUsuario {
       (erro: HttpErrorResponse) => {
         if (erro.status === StatusHttp.NOT_FOUND) {
           this.mensagemService.mostrarMensagemErro(AppMensagem.USUARIO_NAO_ENCONTRADO);
+          this.redirecionarUsuario();
         }
       }
     );
