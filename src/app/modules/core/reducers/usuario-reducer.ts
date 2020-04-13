@@ -20,7 +20,7 @@ import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-githu
 import { ActionModel } from '../models/action.model';
 import { ActionTypes } from '../enuns/action-types.enum';
 
-export function usuarioReducer(state: UsuarioGitHub, action: ActionModel) {
+export function usuarioReducer(state: UsuarioGitHub = null, action: ActionModel) {
   switch (action.type) {
     case ActionTypes.ADICIONAR:
       {
