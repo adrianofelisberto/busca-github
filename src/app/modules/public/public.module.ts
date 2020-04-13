@@ -17,7 +17,6 @@
  */
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -29,7 +28,6 @@ import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { PublicRoutingModule } from './public-routing.module';
 import { GithubService } from './services/github.service';
 import { SharedServiceModule } from 'src/app/shared/shared-service/shared-service.module';
-import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -45,9 +43,7 @@ import { CoreModule } from '../core/core.module';
     ReactiveFormsModule,
     FormsModule,
     SharedComponentsModule,
-    HttpClientModule,
     SharedServiceModule,
-    CoreModule,
   ],
   providers: [
     GithubService

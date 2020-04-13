@@ -38,6 +38,7 @@ registerLocaleData(localePt, PT_BR);
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    CoreModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: PT_BR },
