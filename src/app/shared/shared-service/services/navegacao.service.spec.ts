@@ -16,15 +16,48 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
+import { RouterTestingModule } from '@angular/router/testing';
 import { TestBed } from '@angular/core/testing';
 
+import { ResultadoBuscaComponent } from 'src/app/modules/public/components/resultado-busca/resultado-busca.component';
+import { RepositoriosComponent } from 'src/app/modules/public/components/repositorios/repositorios.component';
+import { PesquisaComponent } from 'src/app/modules/public/components/pesquisa/pesquisa.component';
 import { NavegacaoService } from './navegacao.service';
 
 describe('NavegacaoService', () => {
   let service: NavegacaoService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([
+          {
+            path: 'pesquisa',
+            children: [
+              {
+                path: '',
+                component: PesquisaComponent,
+              },
+              {
+                path: ':username',
+                children: [
+                  {
+                    path: '',
+                    component: ResultadoBuscaComponent
+                  },
+                  {
+                    path: 'repositorios',
+                    component: RepositoriosComponent
+                  }
+                ]
+              }]
+            }
+        ])
+      ],
+      providers: [
+        NavegacaoService
+      ]
+    });
     service = TestBed.inject(NavegacaoService);
   });
 

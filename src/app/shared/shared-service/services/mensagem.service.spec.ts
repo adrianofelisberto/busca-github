@@ -24,7 +24,11 @@ describe('MensagemService', () => {
   let service: MensagemService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        MensagemService
+      ]
+    });
     service = TestBed.inject(MensagemService);
   });
 

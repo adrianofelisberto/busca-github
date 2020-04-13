@@ -19,6 +19,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ErroContentComponent } from './erro-content.component';
+import { SharedServiceModule } from 'src/app/shared/shared-service/shared-service.module';
+import { RouterTestingModule } from '@angular/router/testing';
+import { PesquisaComponent } from 'src/app/modules/public/components/pesquisa/pesquisa.component';
 
 describe('ErroContentComponent', () => {
   let component: ErroContentComponent;
@@ -26,7 +29,16 @@ describe('ErroContentComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ErroContentComponent ]
+      declarations: [
+        ErroContentComponent,
+        PesquisaComponent
+      ],
+      imports: [
+        SharedServiceModule,
+        RouterTestingModule.withRoutes(
+          [{path: 'pesquisa', component: PesquisaComponent}]
+        )
+      ]
     })
     .compileComponents();
   }));

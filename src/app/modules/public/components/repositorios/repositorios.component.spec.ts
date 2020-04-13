@@ -17,17 +17,18 @@
  */
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { RepositoriosComponent } from './repositorios.component';
-import { RouterTestingModule } from '@angular/router/testing';
-import { PesquisaComponent } from '../pesquisa/pesquisa.component';
-import { ResultadoBuscaComponent } from '../resultado-busca/resultado-busca.component';
-import { GithubService } from '../../services/github.service';
-import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
-import { REPOSITORIO } from 'src/app/shared/consts/teste.mock';
+import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { SharedServiceModule } from 'src/app/shared/shared-service/shared-service.module';
+import { ResultadoBuscaComponent } from '../resultado-busca/resultado-busca.component';
+import { PesquisaComponent } from '../pesquisa/pesquisa.component';
+import { RepositoriosComponent } from './repositorios.component';
+import { GithubService } from '../../services/github.service';
+import { REPOSITORIO } from 'src/app/shared/consts/teste.mock';
 
 describe('RepositoriosComponent', () => {
   let component: RepositoriosComponent;
@@ -45,6 +46,7 @@ describe('RepositoriosComponent', () => {
         HttpClientTestingModule,
         SharedComponentsModule,
         ReactiveFormsModule,
+        SharedServiceModule,
         RouterTestingModule.withRoutes([
           {
             path: '', component: PesquisaComponent

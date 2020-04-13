@@ -22,6 +22,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { SharedServiceModule } from 'src/app/shared/shared-service/shared-service.module';
 import { RepositoriosComponent } from '../repositorios/repositorios.component';
 import { ResultadoBuscaComponent } from './resultado-busca.component';
 import { PesquisaComponent } from '../pesquisa/pesquisa.component';
@@ -45,6 +46,7 @@ describe('ResultadoBuscaComponent', () => {
         HttpClientTestingModule,
         CoreModule,
         SharedComponentsModule,
+        SharedServiceModule,
         RouterTestingModule.withRoutes([
           {path: '', component: PesquisaComponent},
           {path: 'pesquisa/:username/repositorios', component: RepositoriosComponent},
