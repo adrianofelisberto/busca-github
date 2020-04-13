@@ -16,20 +16,25 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, Attribute, Output, EventEmitter } from '@angular/core';
+import { Component, Attribute, Output, EventEmitter, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-botao',
   templateUrl: './botao.component.html',
   styleUrls: ['./botao.component.scss']
 })
-export class BotaoComponent {
+export class BotaoComponent implements OnInit {
 
+  @Input() placeholder: string;
   @Output() eventoClique = new EventEmitter();
 
   constructor(
-    @Attribute('placeholder') public placeholder: string = 'botão'
+    @Attribute('placeholder') public placeholderAtr: string = 'botão'
   ) { }
+
+  ngOnInit() {
+    this.placeholder = this.placeholder ? this.placeholder : this.placeholderAtr;
+  }
 
   /**
    * Método aciona o evento de clique para o componente pai
