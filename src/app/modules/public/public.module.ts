@@ -28,6 +28,7 @@ import { RepositoriosComponent } from './components/repositorios/repositorios.co
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { PublicRoutingModule } from './public-routing.module';
 import { GithubService } from './services/github.service';
+import { SharedServiceModule } from 'src/app/shared/shared-service/shared-service.module';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { GithubService } from './services/github.service';
     FormsModule,
     SharedComponentsModule,
     HttpClientModule,
+    SharedServiceModule
   ],
   providers: [
     GithubService
