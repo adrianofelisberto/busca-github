@@ -47,7 +47,7 @@ describe('ResultadoBuscaComponent', () => {
         SharedComponentsModule,
         RouterTestingModule.withRoutes([
           {path: '', component: PesquisaComponent},
-          {path: ':username/repositorios', component: RepositoriosComponent},
+          {path: 'pesquisa/:username/repositorios', component: RepositoriosComponent},
         ])
       ],
       providers: [

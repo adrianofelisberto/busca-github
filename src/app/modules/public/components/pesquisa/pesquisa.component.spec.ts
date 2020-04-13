@@ -55,7 +55,7 @@ describe('PesquisaComponent', () => {
         ReactiveFormsModule,
         SharedComponentsModule,
         RouterTestingModule.withRoutes(
-          [{path: ':username', component: ResultadoBuscaComponent}]
+          [{path: 'pesquisa/:username', component: ResultadoBuscaComponent}]
         )
       ],
       providers: [
