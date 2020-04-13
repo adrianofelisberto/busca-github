@@ -16,16 +16,26 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 
-@Component({
-  selector: 'app-card-content',
-  templateUrl: './card-content.component.html',
-  styleUrls: ['./card-content.component.scss']
-})
-export class CardContentComponent {
-  @Input() centralizadoY = false;
-  @Input() centralizadoX = false;
-  @Input() centralizado = false;
-  @Input() flexColumn = false;
+import Swal from 'sweetalert2';
+
+@Injectable()
+export class MensagemService {
+  toast = Swal.mixin({
+    toast: true,
+    position: 'bottom',
+    showConfirmButton: false,
+    timer: 3000,
+    width: 'auto',
+    heightAuto: true
+  });
+
+  mostrarMensagemErro(mensagem: string) {
+    this.toast.fire({
+      title: `<span style="color: #fff">${mensagem}</span>`,
+      background: 'rgba(207, 84, 84, 0.902)',
+    });
+  }
+
 }

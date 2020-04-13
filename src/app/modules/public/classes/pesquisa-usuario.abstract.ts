@@ -20,11 +20,13 @@ import { GithubService } from '../services/github.service';
 import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
 import { HttpErrorResponse } from '@angular/common/http';
 import { StatusHttp } from 'src/app/shared/enuns/status-http.enum';
-import { MensagemEnum } from 'src/app/shared/enuns/mensagem.enum';
+import { MensagemService } from 'src/app/shared/shared-service/services/mensagem.service';
+import { AppMensagem } from 'src/app/shared/consts/app-mensagem.const';
 
 export abstract class PesquisaUsuario {
   constructor(
     protected gitHubService: GithubService,
+    protected mensagemService: MensagemService,
   ) {}
 
   abstract funcaoSubscribe(resposta: UsuarioGitHub);
@@ -36,7 +38,7 @@ export abstract class PesquisaUsuario {
       },
       (erro: HttpErrorResponse) => {
         if (erro.status === StatusHttp.NOT_FOUND) {
-          alert(MensagemEnum.USUARIO_NAO_ENCONTRADO);
+          this.mensagemService.mostrarMensagemErro(AppMensagem.USUARIO_NAO_ENCONTRADO);
         }
       }
     );

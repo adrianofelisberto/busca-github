@@ -17,7 +17,7 @@
  */
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
@@ -26,6 +26,8 @@ import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-githu
 import { Limpar, Adicionar } from 'src/app/modules/core/consts/action.const';
 import { PesquisaUsuario } from '../../classes/pesquisa-usuario.abstract';
 import { GithubService } from '../../services/github.service';
+import { NavegacaoService } from 'src/app/shared/shared-service/services/navegacao.service';
+import { MensagemService } from 'src/app/shared/shared-service/services/mensagem.service';
 
 @Component({
   selector: 'app-resultado-busca',
@@ -38,11 +40,12 @@ export class ResultadoBuscaComponent extends PesquisaUsuario implements OnInit, 
 
   constructor(
     private store: Store<UsuarioGitHub>,
-    private router: Router,
+    protected mensagemService: MensagemService,
     private route: ActivatedRoute,
-    protected gitHubService: GithubService
+    protected gitHubService: GithubService,
+    private navegacaoService: NavegacaoService
   ) {
-    super(gitHubService);
+    super(gitHubService, mensagemService);
   }
 
   ngOnInit(): void {
@@ -86,11 +89,11 @@ export class ResultadoBuscaComponent extends PesquisaUsuario implements OnInit, 
   }
 
   voltarPesquisa() {
-    this.router.navigate(['/']);
+    this.navegacaoService.paginaInicial();
   }
 
   visualizarRepositorios() {
-    this.router.navigate([`${this.usuario.login}/repositorios`]);
+    this.navegacaoService.visualizarRepositorios(this.usuario.login);
   }
 
 }

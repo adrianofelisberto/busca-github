@@ -23,7 +23,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 import { of } from 'rxjs';
 
-import { UsuarioGitHub } from '../../../../shared/shared-models/models/usuario-github.model';
+import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { SharedServiceModule } from 'src/app/shared/shared-service/shared-service.module';
 import { ResultadoBuscaComponent } from '../resultado-busca/resultado-busca.component';
 import { USUARIO } from '../../../../shared/consts/teste.mock';
 import { GithubService } from '../../services/github.service';
@@ -31,7 +32,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { CoreModule } from 'src/app/modules/core/core.module';
 import { environment } from 'src/environments/environment';
 import { PesquisaComponent } from './pesquisa.component';
-import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
 
 describe('PesquisaComponent', () => {
   let component: PesquisaComponent;
@@ -54,8 +54,9 @@ describe('PesquisaComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         SharedComponentsModule,
+        SharedServiceModule,
         RouterTestingModule.withRoutes(
-          [{path: ':username', component: ResultadoBuscaComponent}]
+          [{path: 'pesquisa/:username', component: ResultadoBuscaComponent}]
         )
       ],
       providers: [

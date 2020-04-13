@@ -18,7 +18,6 @@
 
 import { FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { Store } from '@ngrx/store';
 
@@ -26,6 +25,8 @@ import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-githu
 import { Adicionar } from 'src/app/modules/core/consts/action.const';
 import { GithubService } from '../../services/github.service';
 import { PesquisaUsuario } from '../../classes/pesquisa-usuario.abstract';
+import { NavegacaoService } from 'src/app/shared/shared-service/services/navegacao.service';
+import { MensagemService } from 'src/app/shared/shared-service/services/mensagem.service';
 
 @Component({
   selector: 'app-pesquisa',
@@ -34,14 +35,18 @@ import { PesquisaUsuario } from '../../classes/pesquisa-usuario.abstract';
 })
 export class PesquisaComponent extends PesquisaUsuario {
 
-  username = new FormControl(null, [Validators.required, Validators.minLength(3)]);
+  username = new FormControl(null, [Validators.required, Validators.pattern((/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i))]);
 
   constructor(
     protected gitHubService: GithubService,
     private store: Store<UsuarioGitHub>,
-    private router: Router
+    private navegacaoService: NavegacaoService,
+    protected mensagemService: MensagemService,
   ) {
-    super(gitHubService);
+    super(
+      gitHubService,
+      mensagemService
+    );
   }
 
   limparPesquisa() {
@@ -56,17 +61,21 @@ export class PesquisaComponent extends PesquisaUsuario {
     }
   }
 
-  async funcaoSubscribe(resposta: UsuarioGitHub) {
-    await this.store.dispatch(Adicionar(resposta));
-    this.router.navigate([`${this.username.value}`]);
+  funcaoSubscribe(resposta: UsuarioGitHub) {
+    this.store.dispatch(Adicionar(resposta));
+    this.navegacaoService.resultadoBusca(this.username.value);
   }
 
   campoPesquisaInvalido(): boolean {
-    return this.username.invalid && (this.username.touched || this.username.dirty);
+    return this.username.invalid && this.houveInteracaoUsuario();
   }
 
   verificarMensagem(erro: string) {
-    return this.username.hasError(erro) && (this.username.touched || this.username.dirty);
+    return this.username.hasError(erro) && this.houveInteracaoUsuario();
+  }
+
+  houveInteracaoUsuario() {
+    return this.username.touched || this.username.dirty;
   }
 
 }

@@ -25,8 +25,9 @@ import { startWith, map, debounceTime } from 'rxjs/operators';
 import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
 import { GithubService } from '../../services/github.service';
 import { Repositorio } from '../../models/repositorio.model';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ListaUtil } from '../../utils/lista.util';
+import { NavegacaoService } from 'src/app/shared/shared-service/services/navegacao.service';
 
 @Component({
   selector: 'app-repositorios',
@@ -37,15 +38,15 @@ export class RepositoriosComponent implements OnInit {
 
   campoFiltro = new FormControl();
 
-  private username: string;
+  username: string;
 
   repositorios = new Array<Repositorio>();
   repositoriosFiltrados: Array<Repositorio>;
 
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
-    private gitHubService: GithubService
+    private gitHubService: GithubService,
+    private navegacaoService: NavegacaoService,
   ) { }
 
   ngOnInit(): void {
@@ -91,11 +92,11 @@ export class RepositoriosComponent implements OnInit {
   }
 
   voltarResultado() {
-    this.router.navigate([`/${this.username}`]);
+    this.navegacaoService.resultadoBusca(this.username);
   }
 
   voltarInicio() {
-    this.router.navigate(['/']);
+    this.navegacaoService.paginaInicial();
   }
 
 }

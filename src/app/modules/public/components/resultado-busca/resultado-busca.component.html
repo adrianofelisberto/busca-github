@@ -19,7 +19,7 @@
 <div class="container">
   <app-titulo titulo="Resultado da Busca" [loginUsuario]="usuario?.login"></app-titulo>
 
-  <app-card-content>
+  <app-card-content [centralizadoX]="true">
       <div class="d-flex flex-column flex-md-row">
         <div class="d-flex flex-column justify-content-center col-12 col-md-4">
             <img src="{{ usuario?.avatar_url }}" alt="foto-perfil">

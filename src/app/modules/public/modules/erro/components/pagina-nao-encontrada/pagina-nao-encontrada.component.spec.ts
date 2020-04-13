@@ -16,16 +16,28 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, Input } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Component({
-  selector: 'app-card-content',
-  templateUrl: './card-content.component.html',
-  styleUrls: ['./card-content.component.scss']
-})
-export class CardContentComponent {
-  @Input() centralizadoY = false;
-  @Input() centralizadoX = false;
-  @Input() centralizado = false;
-  @Input() flexColumn = false;
-}
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
+
+describe('PaginaNaoEncontradaComponent', () => {
+  let component: PaginaNaoEncontradaComponent;
+  let fixture: ComponentFixture<PaginaNaoEncontradaComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ PaginaNaoEncontradaComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(PaginaNaoEncontradaComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

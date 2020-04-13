@@ -16,16 +16,21 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-@Component({
-  selector: 'app-card-content',
-  templateUrl: './card-content.component.html',
-  styleUrls: ['./card-content.component.scss']
+import { NavegacaoService } from './services/navegacao.service';
+import { MensagemService } from './services/mensagem.service';
+
+
+
+@NgModule({
+  imports: [
+    CommonModule,
+  ],
+  providers: [
+    NavegacaoService,
+    MensagemService
+  ]
 })
-export class CardContentComponent {
-  @Input() centralizadoY = false;
-  @Input() centralizadoX = false;
-  @Input() centralizado = false;
-  @Input() flexColumn = false;
-}
+export class SharedServiceModule { }

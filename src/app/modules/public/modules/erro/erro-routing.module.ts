@@ -16,16 +16,21 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, Input } from '@angular/core';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 
-@Component({
-  selector: 'app-card-content',
-  templateUrl: './card-content.component.html',
-  styleUrls: ['./card-content.component.scss']
+import { PaginaNaoEncontradaComponent } from './components/pagina-nao-encontrada/pagina-nao-encontrada.component';
+
+
+const routes: Routes = [
+  {
+    path: '',
+    component: PaginaNaoEncontradaComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
 })
-export class CardContentComponent {
-  @Input() centralizadoY = false;
-  @Input() centralizadoX = false;
-  @Input() centralizado = false;
-  @Input() flexColumn = false;
-}
+export class ErroRoutingModule { }

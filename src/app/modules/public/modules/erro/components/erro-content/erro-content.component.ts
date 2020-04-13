@@ -16,16 +16,28 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, OnInit, Attribute } from '@angular/core';
+import { Router } from '@angular/router';
+import { NavegacaoService } from 'src/app/shared/shared-service/services/navegacao.service';
 
 @Component({
-  selector: 'app-card-content',
-  templateUrl: './card-content.component.html',
-  styleUrls: ['./card-content.component.scss']
+  selector: 'app-erro-content',
+  templateUrl: './erro-content.component.html',
+  styleUrls: ['./erro-content.component.scss']
 })
-export class CardContentComponent {
-  @Input() centralizadoY = false;
-  @Input() centralizadoX = false;
-  @Input() centralizado = false;
-  @Input() flexColumn = false;
+export class ErroContentComponent implements OnInit {
+  tituloErro: string;
+  constructor(
+    @Attribute('erro') public erro: number,
+    private navegacaoService: NavegacaoService
+  ) {}
+
+  ngOnInit(): void {
+    this.tituloErro = `Erro ${this.erro}`;
+  }
+
+  voltarInicio() {
+    this.navegacaoService.paginaInicial();
+  }
+
 }

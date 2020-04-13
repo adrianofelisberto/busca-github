@@ -125,6 +125,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "busca-github"
+    }
+  },
+  "defaultProject": "busca-github",
+  "cli": {
+    "analytics": false
+  }
 }

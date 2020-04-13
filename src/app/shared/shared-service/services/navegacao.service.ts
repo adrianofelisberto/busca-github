@@ -16,16 +16,26 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-card-content',
-  templateUrl: './card-content.component.html',
-  styleUrls: ['./card-content.component.scss']
+@Injectable({
+  providedIn: 'root'
 })
-export class CardContentComponent {
-  @Input() centralizadoY = false;
-  @Input() centralizadoX = false;
-  @Input() centralizado = false;
-  @Input() flexColumn = false;
+export class NavegacaoService {
+
+  constructor(private router: Router) { }
+
+  paginaInicial() {
+    this.router.navigate(['/']);
+  }
+
+  resultadoBusca(username: string) {
+    this.router.navigate([`/pesquisa/${username}`]);
+  }
+
+  visualizarRepositorios(username: string) {
+    this.router.navigate([`/pesquisa/${username}/repositorios`]);
+  }
+
 }

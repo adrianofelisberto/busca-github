@@ -27,21 +27,35 @@ import { RepositoriosComponent } from './components/repositorios/repositorios.co
 const routes: Routes = [
   {
     path: '',
-    component: PesquisaComponent,
+    redirectTo: 'pesquisa',
+    pathMatch: 'full'
   },
   {
-    path: ':username',
+    path: 'pesquisa',
     children: [
       {
         path: '',
-        component: ResultadoBuscaComponent
+        component: PesquisaComponent,
       },
       {
-        path: 'repositorios',
-        component: RepositoriosComponent
-      }
+        path: ':username',
+        children: [
+          {
+            path: '',
+            component: ResultadoBuscaComponent
+          },
+          {
+            path: 'repositorios',
+            component: RepositoriosComponent
+          }
+        ]
+      },
     ]
   },
+  {
+    path: '**',
+    loadChildren: () => import('./modules/erro/erro.module').then(module => module.ErroModule),
+  }
 ];
 
 @NgModule({

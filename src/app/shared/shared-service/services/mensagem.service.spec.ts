@@ -16,16 +16,23 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, Input } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 
-@Component({
-  selector: 'app-card-content',
-  templateUrl: './card-content.component.html',
-  styleUrls: ['./card-content.component.scss']
-})
-export class CardContentComponent {
-  @Input() centralizadoY = false;
-  @Input() centralizadoX = false;
-  @Input() centralizado = false;
-  @Input() flexColumn = false;
-}
+import { MensagemService } from './mensagem.service';
+
+describe('MensagemService', () => {
+  let service: MensagemService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        MensagemService
+      ]
+    });
+    service = TestBed.inject(MensagemService);
+  });
+
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});
