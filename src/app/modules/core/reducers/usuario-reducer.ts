@@ -21,15 +21,16 @@ import { ActionModel } from '../models/action.model';
 import { ActionTypes } from '../enuns/action-types.enum';
 
 export function usuarioReducer(state: UsuarioGitHub = null, action: ActionModel) {
+  let estadoInicial = state;
   switch (action.type) {
     case ActionTypes.ADICIONAR:
       {
-        state = action.payload;
-        return state;
+        estadoInicial = action.payload;
+        return estadoInicial;
       }
     case ActionTypes.LIMPAR:
       {
-        return null;
+        return estadoInicial;
       }
   }
 }
