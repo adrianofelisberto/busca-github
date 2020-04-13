@@ -28,13 +28,19 @@ export class MensagemService {
     showConfirmButton: false,
     timer: 3000,
     width: 'auto',
-    heightAuto: true
   });
 
   mostrarMensagemErro(mensagem: string) {
     this.toast.fire({
       title: `<span style="color: #fff">${mensagem}</span>`,
       background: 'rgba(207, 84, 84, 0.902)',
+    });
+  }
+
+  mostrarMensagemAviso(mensagem: string) {
+    this.toast.fire({
+      title: `<span style="color: #fff">${mensagem}</span>`,
+      background: '#FFA619',
     });
   }
 

@@ -69,6 +69,10 @@ export class ResultadoBuscaComponent extends PesquisaUsuario implements OnInit, 
     }
   }
 
+  redirecionarUsuario() {
+    this.navegacaoService.paginaInicial();
+  }
+
   buscarUsuarioPorParametro() {
     this.route.paramMap.subscribe(params => {
       const username: string = params.get('username');

@@ -17,5 +17,9 @@
  */
 
 export const AppMensagem =  {
-  USUARIO_NAO_ENCONTRADO: 'Usuário não encontrado.'
+  USUARIO_NAO_ENCONTRADO: 'Usuário não encontrado',
+  BAD_REQUEST: 'Você passou algum parâmetro incorreto',
+  ERROR_SERVIDOR: 'Aconteceu algum problema no servidor',
+  GETWAY_TIMEOUT: 'O servidor não pôde responder a sua solicitação',
+  FORBIDDEN: 'Você está temporariamente bloqueado',
 };

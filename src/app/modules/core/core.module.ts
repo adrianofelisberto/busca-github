@@ -20,6 +20,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { usuarioReducer } from './reducers/usuario-reducer';
+import { SharedServiceModule } from 'src/app/shared/shared-service/shared-service.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 
 
 
@@ -27,9 +30,17 @@ import { usuarioReducer } from './reducers/usuario-reducer';
   declarations: [],
   imports: [
     CommonModule,
+    SharedServiceModule,
     StoreModule.forRoot({
       usuario: usuarioReducer
     })
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    },
   ]
 })
 export class CoreModule { }
