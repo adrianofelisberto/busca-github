@@ -19,9 +19,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NavegacaoService {
 
   constructor(private router: Router) { }
@@ -36,6 +34,10 @@ export class NavegacaoService {
 
   visualizarRepositorios(username: string) {
     this.router.navigate([`/pesquisa/${username}/repositorios`]);
+  }
+
+  direcionarPaginaErroServidor() {
+    this.router.navigate([`/erro/servidor`]);
   }
 
 }
