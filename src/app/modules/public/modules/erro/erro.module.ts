@@ -21,6 +21,7 @@ import { CommonModule } from '@angular/common';
 
 import { ErroRoutingModule } from './erro-routing.module';
 import { PaginaNaoEncontradaComponent } from './components/pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PaginaNaoEncontradaComponent } from './components/pagina-nao-encontrada
   ],
   imports: [
     CommonModule,
-    ErroRoutingModule
+    ErroRoutingModule,
+    SharedComponentsModule
   ]
 })
 export class ErroModule { }

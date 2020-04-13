@@ -25,10 +25,10 @@ import { Component, OnInit, Input, Attribute } from '@angular/core';
 })
 export class TituloComponent implements OnInit {
 
-  @Input() loginUsuario = '';
-
+  @Input() loginUsuario;
+  @Input() mostrarImagem = true;
   constructor(
-    @Attribute('titulo') public titulo: string = ''
+    @Attribute('titulo') public titulo: string = '',
   ) { }
 
   ngOnInit(): void {
