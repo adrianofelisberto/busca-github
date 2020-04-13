@@ -22,6 +22,8 @@ import { TestBed } from '@angular/core/testing';
 import { SharedServiceModule } from 'src/app/shared/shared-service/shared-service.module';
 import { HttpInterceptorService } from './http-interceptor.service';
 import { StatusHttp } from 'src/app/shared/enuns/status-http.enum';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ErroServidorComponent } from '../../public/modules/erro/components/erro-servidor/erro-servidor.component';
 
 describe('HttpInterceptorService', () => {
   let service: HttpInterceptorService;
@@ -29,7 +31,10 @@ describe('HttpInterceptorService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        SharedServiceModule
+        SharedServiceModule,
+        RouterTestingModule.withRoutes(
+          [{path: 'erro/servidor', component: ErroServidorComponent}]
+        )
       ],
       providers: [
         HttpInterceptorService
