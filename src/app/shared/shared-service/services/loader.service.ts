@@ -16,22 +16,20 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
-import { NavegacaoService } from './services/navegacao.service';
-import { MensagemService } from './services/mensagem.service';
-import { LoaderService } from './services/loader.service';
-
-
-
-@NgModule({
-  imports: [
-    CommonModule,
-  ],
-  providers: [
-    NavegacaoService,
-    MensagemService,
-  ]
+@Injectable({
+  providedIn: 'root'
 })
-export class SharedServiceModule { }
+export class LoaderService {
+  carregar = new Subject<boolean>();
+
+  mostrar() {
+    this.carregar.next(true);
+  }
+
+  ocultar() {
+    this.carregar.next(false);
+  }
+}
