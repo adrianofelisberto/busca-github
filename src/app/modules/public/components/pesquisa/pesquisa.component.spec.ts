@@ -25,12 +25,13 @@ import { of } from 'rxjs';
 
 import { UsuarioGitHub } from '../../../../shared/shared-models/models/usuario-github.model';
 import { ResultadoBuscaComponent } from '../resultado-busca/resultado-busca.component';
-import { USUARIO } from '../../../../shared/consts/usuario.mock';
+import { USUARIO } from '../../../../shared/consts/teste.mock';
 import { GithubService } from '../../services/github.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CoreModule } from 'src/app/modules/core/core.module';
 import { environment } from 'src/environments/environment';
 import { PesquisaComponent } from './pesquisa.component';
+import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
 
 describe('PesquisaComponent', () => {
   let component: PesquisaComponent;
@@ -45,15 +46,16 @@ describe('PesquisaComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         PesquisaComponent,
-        ResultadoBuscaComponent
+        ResultadoBuscaComponent,
       ],
       imports: [
         HttpClientTestingModule,
         CoreModule,
         FormsModule,
         ReactiveFormsModule,
+        SharedComponentsModule,
         RouterTestingModule.withRoutes(
-          [{path: 'resultado', component: ResultadoBuscaComponent}]
+          [{path: ':username', component: ResultadoBuscaComponent}]
         )
       ],
       providers: [
@@ -82,12 +84,11 @@ describe('PesquisaComponent', () => {
     expect(component.username.value).toBeNull();
   });
 
-  it('deve buscar o usuário pelo login', async(inject([GithubService], (service) => {
+  it('deve buscar o usuário pelo login quando formControl válido', async(inject([GithubService], (service) => {
 
     component.username.setValue('adrianofelisberto');
-    service.buscarUsuario('adrianofelisberto').subscribe((usuario: UsuarioGitHub) => {
-      expect(usuario).toBeDefined();
-    });
+    expect(component.username.valid).toBeTruthy();
+    component.pesquisar();
     const request: any = httpTestingController.expectOne(`${environment.apiUrl}/users/adrianofelisberto`);
     request.flush(USUARIO);
 
@@ -114,5 +115,11 @@ describe('PesquisaComponent', () => {
     );
     component.pesquisarUsuario('adrianofelisberto');
   })));
+
+  it('deve marcar o formControl quando estiver inválido', () => {
+    component.pesquisar();
+    expect(component.username.invalid).toBeTruthy();
+    expect(component.username.touched).toBeTruthy();
+  });
 
 });
