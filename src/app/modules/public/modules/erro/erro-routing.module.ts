@@ -20,12 +20,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PaginaNaoEncontradaComponent } from './components/pagina-nao-encontrada/pagina-nao-encontrada.component';
+import { ErroServidorComponent } from './components/erro-servidor/erro-servidor.component';
 
 
 const routes: Routes = [
   {
     path: '',
     component: PaginaNaoEncontradaComponent
+  },
+  {
+    path: 'servidor',
+    component: ErroServidorComponent
   }
 ];
 

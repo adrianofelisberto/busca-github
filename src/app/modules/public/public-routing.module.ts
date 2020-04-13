@@ -53,8 +53,12 @@ const routes: Routes = [
     ]
   },
   {
-    path: '**',
+    path: 'erro',
     loadChildren: () => import('./modules/erro/erro.module').then(module => module.ErroModule),
+  },
+  {
+    path: '**',
+    redirectTo: 'erro'
   }
 ];
 

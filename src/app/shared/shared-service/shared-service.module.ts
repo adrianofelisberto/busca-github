@@ -21,6 +21,7 @@ import { NgModule } from '@angular/core';
 
 import { NavegacaoService } from './services/navegacao.service';
 import { MensagemService } from './services/mensagem.service';
+import { LoaderService } from './services/loader.service';
 
 
 
@@ -30,7 +31,7 @@ import { MensagemService } from './services/mensagem.service';
   ],
   providers: [
     NavegacaoService,
-    MensagemService
+    MensagemService,
   ]
 })
 export class SharedServiceModule { }

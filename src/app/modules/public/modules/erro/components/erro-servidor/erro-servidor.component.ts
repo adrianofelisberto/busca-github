@@ -16,28 +16,11 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 
-@Injectable()
-export class NavegacaoService {
-
-  constructor(private router: Router) { }
-
-  paginaInicial() {
-    this.router.navigate(['/']);
-  }
-
-  resultadoBusca(username: string) {
-    this.router.navigate([`/pesquisa/${username}`]);
-  }
-
-  visualizarRepositorios(username: string) {
-    this.router.navigate([`/pesquisa/${username}/repositorios`]);
-  }
-
-  direcionarPaginaErroServidor() {
-    this.router.navigate([`/erro/servidor`]);
-  }
-
-}
+@Component({
+  selector: 'app-erro-servidor',
+  templateUrl: './erro-servidor.component.html',
+  styleUrls: ['./erro-servidor.component.scss']
+})
+export class ErroServidorComponent { }

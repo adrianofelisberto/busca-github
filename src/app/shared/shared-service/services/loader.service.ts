@@ -17,27 +17,19 @@
  */
 
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
-@Injectable()
-export class NavegacaoService {
+@Injectable({
+  providedIn: 'root'
+})
+export class LoaderService {
+  carregar = new Subject<boolean>();
 
-  constructor(private router: Router) { }
-
-  paginaInicial() {
-    this.router.navigate(['/']);
+  mostrar() {
+    this.carregar.next(true);
   }
 
-  resultadoBusca(username: string) {
-    this.router.navigate([`/pesquisa/${username}`]);
+  ocultar() {
+    this.carregar.next(false);
   }
-
-  visualizarRepositorios(username: string) {
-    this.router.navigate([`/pesquisa/${username}/repositorios`]);
-  }
-
-  direcionarPaginaErroServidor() {
-    this.router.navigate([`/erro/servidor`]);
-  }
-
 }

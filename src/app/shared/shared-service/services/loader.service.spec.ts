@@ -16,28 +16,19 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { TestBed } from '@angular/core/testing';
 
-@Injectable()
-export class NavegacaoService {
+import { LoaderService } from './loader.service';
 
-  constructor(private router: Router) { }
+describe('LoaderService', () => {
+  let service: LoaderService;
 
-  paginaInicial() {
-    this.router.navigate(['/']);
-  }
+  beforeEach(() => {
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(LoaderService);
+  });
 
-  resultadoBusca(username: string) {
-    this.router.navigate([`/pesquisa/${username}`]);
-  }
-
-  visualizarRepositorios(username: string) {
-    this.router.navigate([`/pesquisa/${username}/repositorios`]);
-  }
-
-  direcionarPaginaErroServidor() {
-    this.router.navigate([`/erro/servidor`]);
-  }
-
-}
+  it('should be created', () => {
+    expect(service).toBeTruthy();
+  });
+});

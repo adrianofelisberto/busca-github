@@ -16,28 +16,28 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Injectable()
-export class NavegacaoService {
+import { ErroServidorComponent } from './erro-servidor.component';
 
-  constructor(private router: Router) { }
+describe('ErroServidorComponent', () => {
+  let component: ErroServidorComponent;
+  let fixture: ComponentFixture<ErroServidorComponent>;
 
-  paginaInicial() {
-    this.router.navigate(['/']);
-  }
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ ErroServidorComponent ]
+    })
+    .compileComponents();
+  }));
 
-  resultadoBusca(username: string) {
-    this.router.navigate([`/pesquisa/${username}`]);
-  }
+  beforeEach(() => {
+    fixture = TestBed.createComponent(ErroServidorComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
-  visualizarRepositorios(username: string) {
-    this.router.navigate([`/pesquisa/${username}/repositorios`]);
-  }
-
-  direcionarPaginaErroServidor() {
-    this.router.navigate([`/erro/servidor`]);
-  }
-
-}
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

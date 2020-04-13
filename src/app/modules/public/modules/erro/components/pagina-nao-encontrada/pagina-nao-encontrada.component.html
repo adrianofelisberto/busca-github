@@ -16,8 +16,6 @@
   along with this program.  If not, see [http://www.gnu.org/licenses/].
 -->
 
-<app-erro-content erro="404">
-  <h1>Desculpe!</h1>
-  <img src="assets/images/octocat-obi-wan.png" alt="octocat">
-  <span>A página não foi encontrada</span>
+<app-erro-content mensagemErro="A página não foi encontrada" erro="404">
+  <app-imagem-octocat [tamanho]="30" [imgNaoEncontrado]="true"></app-imagem-octocat>
 </app-erro-content>

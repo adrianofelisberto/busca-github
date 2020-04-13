@@ -24,6 +24,7 @@ import { CardContentComponent } from './components/card-content/card-content.com
 import { TituloComponent } from './components/titulo/titulo.component';
 import { BotaoComponent } from './components/botao/botao.component';
 import { BotoesComponent } from './components/botoes/botoes.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 
@@ -34,6 +35,7 @@ import { BotoesComponent } from './components/botoes/botoes.component';
     TituloComponent,
     CardContentComponent,
     BotoesComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule
@@ -44,6 +46,7 @@ import { BotoesComponent } from './components/botoes/botoes.component';
     TituloComponent,
     CardContentComponent,
     BotoesComponent,
+    LoaderComponent
   ]
 })
 export class SharedComponentsModule { }
