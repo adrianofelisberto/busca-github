@@ -72,7 +72,7 @@ export class RepositoriosComponent implements OnInit {
     });
   }
 
-  private filtrarLista(valor: string): Repositorio[] {
+  filtrarLista(valor: string): Repositorio[] {
     return this.repositorios.filter(repositorio => {
       return repositorio.name.toLowerCase().includes(valor.trim().toLowerCase());
     });
@@ -86,7 +86,7 @@ export class RepositoriosComponent implements OnInit {
       });
   }
 
-  private copiarListaOrdenada(): Array<Repositorio> {
+  copiarListaOrdenada(): Array<Repositorio> {
     return this.repositorios.slice().sort(ListaUtil.ordenarListaPorEstrela);
   }
 
