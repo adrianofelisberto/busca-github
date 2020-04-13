@@ -21,8 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { InformacaoRepositorioComponent } from './components/repositorios/informacao-repositorio/informacao-repositorio.component';
 import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
 import { ResultadoBuscaComponent } from './components/resultado-busca/resultado-busca.component';
+import { RepositoriosComponent } from './components/repositorios/repositorios.component';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
 import { PublicRoutingModule } from './public-routing.module';
 import { GithubService } from './services/github.service';
@@ -31,7 +33,9 @@ import { GithubService } from './services/github.service';
 @NgModule({
   declarations: [
     PesquisaComponent,
-    ResultadoBuscaComponent
+    ResultadoBuscaComponent,
+    RepositoriosComponent,
+    InformacaoRepositorioComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,7 @@ import { GithubService } from './services/github.service';
     ReactiveFormsModule,
     FormsModule,
     SharedComponentsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     GithubService

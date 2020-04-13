@@ -15,6 +15,30 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-.input-group-prepend {
-  max-height: 38px !important;
+$cor-texto: #7A7A7A;
+$cor-titulo: #005D9E;
+
+h3 {
+  font-size: 12pt;
+  color: $cor-titulo;
+}
+
+span {
+  font-weight: 400;
+  color: $cor-texto;
+  font-size: 10pt;
+
+   i {
+     color: #EAD200;
+   }
+}
+
+a {
+  text-decoration: none;
+}
+
+.descricao p {
+  font-size: 11pt;
+  color: $cor-texto;
+  margin-bottom: 0.2em;
 }

@@ -21,9 +21,13 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
 
+import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { RepositoriosComponent } from '../repositorios/repositorios.component';
 import { ResultadoBuscaComponent } from './resultado-busca.component';
 import { PesquisaComponent } from '../pesquisa/pesquisa.component';
+import { USUARIO_GITHUB } from 'src/app/shared/consts/teste.mock';
 import { CoreModule } from 'src/app/modules/core/core.module';
+import { GithubService } from '../../services/github.service';
 
 describe('ResultadoBuscaComponent', () => {
   let component: ResultadoBuscaComponent;
@@ -33,15 +37,21 @@ describe('ResultadoBuscaComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         ResultadoBuscaComponent,
-        PesquisaComponent
+        PesquisaComponent,
+        RepositoriosComponent
       ],
       imports: [
         HttpClientModule,
         HttpClientTestingModule,
         CoreModule,
-        RouterTestingModule.withRoutes(
-          [{path: '', component: PesquisaComponent}]
-        )
+        SharedComponentsModule,
+        RouterTestingModule.withRoutes([
+          {path: '', component: PesquisaComponent},
+          {path: ':username/repositorios', component: RepositoriosComponent},
+        ])
+      ],
+      providers: [
+        GithubService,
       ]
     })
     .compileComponents();
@@ -59,6 +69,22 @@ describe('ResultadoBuscaComponent', () => {
 
   it('deve voltar para tela de pesquisa', () => {
     component.voltarPesquisa();
+  });
+
+  it('deve salvar o usuário no store do redux', () => {
+    component.funcaoSubscribe(USUARIO_GITHUB);
+    component.ngOnInit();
+    expect(component.usuario).toBeDefined();
+  });
+
+  it('deve limpar o store do redux', () => {
+    component.ngOnDestroy();
+    expect(component.usuario).toBeUndefined();
+  });
+
+  it('deve navegar para os repositórios', () => {
+    component.usuario = USUARIO_GITHUB;
+    component.visualizarRepositorios();
   });
 
 });

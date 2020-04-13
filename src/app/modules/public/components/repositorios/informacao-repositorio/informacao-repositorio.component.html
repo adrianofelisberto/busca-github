@@ -16,6 +16,23 @@
   along with this program.  If not, see [http://www.gnu.org/licenses/].
 -->
 
-<div class="card col-12 mt-3 p-4 d-flex flex-row" [ngClass]="{'align-items-center': centralizado}">
-  <ng-content></ng-content>
+<hr>
+<div class="d-flex flex-column flex-md-row justify-content-between">
+  <a href="{{ repositorio?.html_url }}">
+    <h3>{{ repositorio?.name }}</h3>
+  </a>
+  <span>
+    <i class="fa fa-star" aria-hidden="true"></i>
+    {{ repositorio?.stargazers_count }}
+  </span>
+</div> 
+<div class="descricao">
+  <p>
+    {{ repositorio?.description }}
+  </p>
+</div>
+<div>
+  <span>
+    Atualizado em {{ repositorio?.updated_at | date: 'dd/MM/y' }}
+  </span>
 </div>

@@ -21,26 +21,27 @@ import { NgModule } from '@angular/core';
 
 import { ResultadoBuscaComponent } from './components/resultado-busca/resultado-busca.component';
 import { PesquisaComponent } from './components/pesquisa/pesquisa.component';
+import { RepositoriosComponent } from './components/repositorios/repositorios.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'pesquisa',
+    component: PesquisaComponent,
   },
   {
-    path: 'pesquisa',
+    path: ':username',
     children: [
       {
         path: '',
-        component: PesquisaComponent,
+        component: ResultadoBuscaComponent
       },
       {
-        path: 'resultado',
-        component: ResultadoBuscaComponent
+        path: 'repositorios',
+        component: RepositoriosComponent
       }
     ]
-  }
+  },
 ];
 
 @NgModule({

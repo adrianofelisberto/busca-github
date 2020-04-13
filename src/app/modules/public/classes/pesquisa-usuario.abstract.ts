@@ -16,22 +16,29 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
-import { Component, OnInit, Input, Attribute } from '@angular/core';
+import { GithubService } from '../services/github.service';
+import { UsuarioGitHub } from 'src/app/shared/shared-models/models/usuario-github.model';
+import { HttpErrorResponse } from '@angular/common/http';
+import { StatusHttp } from 'src/app/shared/enuns/status-http.enum';
+import { MensagemEnum } from 'src/app/shared/enuns/mensagem.enum';
 
-@Component({
-  selector: 'app-titulo',
-  templateUrl: './titulo.component.html',
-  styleUrls: ['./titulo.component.scss']
-})
-export class TituloComponent implements OnInit {
-
-  @Input() loginUsuario = '';
-
+export abstract class PesquisaUsuario {
   constructor(
-    @Attribute('titulo') public titulo: string = ''
-  ) { }
+    protected gitHubService: GithubService,
+  ) {}
 
-  ngOnInit(): void {
+  abstract funcaoSubscribe(resposta: UsuarioGitHub);
+
+  pesquisarUsuario(username: string) {
+    this.gitHubService.buscarUsuario(username)
+      .subscribe(async (resposta: UsuarioGitHub) => {
+        this.funcaoSubscribe(resposta);
+      },
+      (erro: HttpErrorResponse) => {
+        if (erro.status === StatusHttp.NOT_FOUND) {
+          alert(MensagemEnum.USUARIO_NAO_ENCONTRADO);
+        }
+      }
+    );
   }
-
 }

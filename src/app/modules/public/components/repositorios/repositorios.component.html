@@ -17,21 +17,23 @@
 -->
 
 <div class="container">
-  <app-titulo titulo="Resultado da Busca" [loginUsuario]="usuario?.login"></app-titulo>
+  <app-titulo titulo="Repositórios" [loginUsuario]="username"></app-titulo>
 
-  <app-card-content>
-      <div class="d-flex flex-column flex-md-row">
-        <div class="d-flex flex-column justify-content-center col-12 col-md-4">
-            <img src="{{ usuario?.avatar_url }}" alt="foto-perfil">
-            <h4 class="text-center mt-2">{{ usuario?.name }}</h4>
-        </div>
-        <div class="col-12 col-md-8 d-flex flex-column">
-          <p>Seguidores: {{ usuario?.followers }}</p>
-          <p>Seguindo: {{ usuario?.following }}</p>
-          <p>Email: {{ usuario?.email }}</p>
-          <p>Bio: {{ usuario?.bio }}</p>
+  <app-card-content [centralizado]="false">
+    <div class="d-flex flex-column col-12 p-0 m-0">
+      <div class="d-flex justify-content-center">
+        <div class="col-12 col-md-8">
+          <input type="text" [formControl]="campoFiltro" placeholder="Filtrar nome" class="form-control">
         </div>
       </div>
+      <div class="col-12 mt-3 lista-repositorios">
+        <app-informacao-repositorio
+          class="informacao-repositorio"
+          *ngFor="let repositorio of repositoriosFiltrados"
+          [repositorio]="repositorio"
+        ></app-informacao-repositorio>
+      </div>
+    </div>
   </app-card-content>
 
   <div class="col-md-6 ml-auto">
@@ -39,12 +41,12 @@
       <app-botao
         class="col-12 col-md-6 pl-md-0"
         placeholder="Voltar"
-        (eventoClique)="voltarPesquisa()"
+        (eventoClique)="voltarResultado()"
       ></app-botao>
       <app-botao
         class="col-12 col-md-6 mt-3 mt-md-0 pr-md-0"
-        placeholder="Ver Repositórios"
-        (eventoClique)="visualizarRepositorios()"
+        placeholder="Início"
+        (eventoClique)="voltarInicio()"
       ></app-botao>
     </app-botoes-grupo-content>
   </div>

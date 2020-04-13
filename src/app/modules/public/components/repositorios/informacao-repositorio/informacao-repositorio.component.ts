@@ -15,6 +15,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-.input-group-prepend {
-  max-height: 38px !important;
+
+import { Component, OnInit, Input } from '@angular/core';
+import { Repositorio } from '../../../models/repositorio.model';
+
+@Component({
+  selector: 'app-informacao-repositorio',
+  templateUrl: './informacao-repositorio.component.html',
+  styleUrls: ['./informacao-repositorio.component.scss']
+})
+export class InformacaoRepositorioComponent implements OnInit {
+
+  @Input() repositorio: Repositorio;
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
 }

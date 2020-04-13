@@ -15,6 +15,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-.input-group-prepend {
-  max-height: 38px !important;
-}
+
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { InformacaoRepositorioComponent } from './informacao-repositorio.component';
+
+describe('InformacaoRepositorioComponent', () => {
+  let component: InformacaoRepositorioComponent;
+  let fixture: ComponentFixture<InformacaoRepositorioComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ InformacaoRepositorioComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(InformacaoRepositorioComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

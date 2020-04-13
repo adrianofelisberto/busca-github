@@ -15,6 +15,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
-.input-group-prepend {
-  max-height: 38px !important;
+
+@import '../../../../../assets/styles/variaveis';
+
+::ng-deep .informacao-repositorio:first-child hr {
+   margin-top: 0;
+}
+ 
+.lista-repositorios {
+   max-height: 290px;
+   overflow-y: auto;
+ }
+
+ /* width */
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar {
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: $cor-background;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  color: #1f2d33;
+  background-color: $cor-principal;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: $cor-principal-hover;
 }
