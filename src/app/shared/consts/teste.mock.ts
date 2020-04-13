@@ -16,6 +16,18 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
+import { UsuarioGitHub } from '../shared-models/models/usuario-github.model';
+
+export const USUARIO_GITHUB: UsuarioGitHub = {
+  avatar_url: 'teste',
+  bio: 'teste',
+  email: 'teste',
+  followers: 0,
+  following: 0,
+  login: 'teste',
+  name: 'teste',
+};
+
 export const USUARIO: any = {
   login: 'usuarioMockado',
   id: 64098633,

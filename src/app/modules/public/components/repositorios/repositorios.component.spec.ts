@@ -25,6 +25,9 @@ import { ResultadoBuscaComponent } from '../resultado-busca/resultado-busca.comp
 import { GithubService } from '../../services/github.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SharedComponentsModule } from 'src/app/shared/shared-components/shared-components.module';
+import { REPOSITORIO } from 'src/app/shared/consts/teste.mock';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('RepositoriosComponent', () => {
   let component: RepositoriosComponent;
@@ -40,6 +43,8 @@ describe('RepositoriosComponent', () => {
       imports: [
         HttpClientModule,
         HttpClientTestingModule,
+        SharedComponentsModule,
+        ReactiveFormsModule,
         RouterTestingModule.withRoutes([
           {
             path: '', component: PesquisaComponent
@@ -64,5 +69,24 @@ describe('RepositoriosComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('deve filtrar a lista de repositórios', () => {
+    component.repositorios = new Array(REPOSITORIO);
+    component.filtrarLista('teste');
+    expect(component.repositoriosFiltrados.length).toBe(0);
+  });
+
+  it('deve copiar uma lista ordenada', () => {
+    component.repositorios = [
+      { stargazers_count: 1, description: '', html_url: '', name: '', updated_at: '' },
+      { stargazers_count: 3, description: '', html_url: '', name: '', updated_at: '' },
+      { stargazers_count: 2, description: '', html_url: '', name: '', updated_at: '' },
+      { stargazers_count: 10, description: '', html_url: '', name: '', updated_at: '' },
+      { stargazers_count: 1, description: '', html_url: '', name: '', updated_at: '' },
+    ];
+    const listaOrdenada = component.copiarListaOrdenada();
+    expect(listaOrdenada[0].stargazers_count).toBe(10);
+    expect(listaOrdenada.length).toBe(component.repositorios.length);
   });
 });
