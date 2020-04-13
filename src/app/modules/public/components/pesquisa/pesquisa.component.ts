@@ -27,7 +27,6 @@ import { GithubService } from '../../services/github.service';
 import { PesquisaUsuario } from '../../classes/pesquisa-usuario.abstract';
 import { NavegacaoService } from 'src/app/shared/shared-service/services/navegacao.service';
 import { MensagemService } from 'src/app/shared/shared-service/services/mensagem.service';
-import { InteracaoUsuario } from '../../utils/interacao-usuario.util';
 
 @Component({
   selector: 'app-pesquisa',
@@ -59,12 +58,6 @@ export class PesquisaComponent extends PesquisaUsuario {
       this.pesquisarUsuario(this.username.value);
     } else {
       this.username.markAsTouched();
-    }
-  }
-
-  digitacaoUsuario(event: KeyboardEvent) {
-    if (InteracaoUsuario.possuiEspaco(event)) {
-      return;
     }
   }
 
