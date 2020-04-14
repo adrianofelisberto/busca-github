@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.com/adrianofelisberto/busca-github.svg?branch=master)](https://travis-ci.com/adrianofelisberto/busca-github)<space><space>[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=adrianofelisberto_busca-github&metric=alert_status)](https://sonarcloud.io/dashboard?id=adrianofelisberto_busca-github)
+[![Build Status](https://travis-ci.com/adrianofelisberto/busca-github.svg?branch=master)](https://travis-ci.com/adrianofelisberto/busca-github)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=adrianofelisberto_busca-github&metric=alert_status)](https://sonarcloud.io/dashboard?id=adrianofelisberto_busca-github)
 
 
 # Busca GitHub
