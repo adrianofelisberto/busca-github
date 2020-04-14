@@ -29,6 +29,10 @@ export abstract class PesquisaUsuario {
     protected mensagemService: MensagemService,
   ) {}
 
+  /**
+   * Método implementado pelo componente filho, para implementar a ação após receber a resposta da API
+   * @param resposta Resposta da API do gitHub
+   */
   abstract funcaoSubscribe(resposta: UsuarioGitHub);
   redirecionarUsuario() {}
 
