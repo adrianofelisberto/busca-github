@@ -4,7 +4,7 @@
 
 # Busca GitHub
 
-A aplicação tem como objetivo buscar dados de um usuário do GitHub, utilizando o login, assim como buscar seus repositórios, ordenados pela quantidade de estrelas, em ordem descrecente.
+A aplicação tem como objetivo buscar dados de um usuário do GitHub, utilizando o login, assim como buscar seus repositórios, ordenados pela quantidade de estrelas, em ordem decrescente.
 
 Foi feita utilizando o Framework do Angular 9.
 
