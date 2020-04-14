@@ -61,6 +61,9 @@ export class RepositoriosComponent implements OnInit {
     });
   }
 
+  /**
+   * Inicia a verificação de mudança no formControl
+   */
   iniciarObservableFiltro() {
     this.campoFiltro.valueChanges.pipe(
       debounceTime(200),

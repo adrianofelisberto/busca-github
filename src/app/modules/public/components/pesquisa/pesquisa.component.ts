@@ -66,14 +66,25 @@ export class PesquisaComponent extends PesquisaUsuario {
     this.navegacaoService.resultadoBusca(this.username.value);
   }
 
+  /**
+   * Verifica se o componente de pesquisa é inválido
+   */
   campoPesquisaInvalido(): boolean {
     return this.username.invalid && this.houveInteracaoUsuario();
   }
 
+  /**
+   * Verifica se um valor de erro está presente no formControl.
+   * Ex: required
+   * @param erro valor do erro
+   */
   verificarMensagem(erro: string) {
     return this.username.hasError(erro) && this.houveInteracaoUsuario();
   }
 
+  /**
+   * Verifica se o usuário tocou ou modificou o input
+   */
   houveInteracaoUsuario() {
     return this.username.touched || this.username.dirty;
   }

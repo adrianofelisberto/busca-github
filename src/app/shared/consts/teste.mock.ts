@@ -16,6 +16,10 @@
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  */
 
+/*
+ * Arquivo de mock para ser usado nos testes unitários
+ */
+
 import { UsuarioGitHub } from '../shared-models/models/usuario-github.model';
 
 export const USUARIO_GITHUB: UsuarioGitHub = {

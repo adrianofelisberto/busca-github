@@ -1,6 +1,5 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=adrianofelisberto_busca-github&metric=alert_status)](https://sonarcloud.io/dashboard?id=adrianofelisberto_busca-github)
+[![Build Status](https://travis-ci.com/adrianofelisberto/busca-github.svg?branch=master)](https://travis-ci.com/adrianofelisberto/busca-github)<space><space>[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=adrianofelisberto_busca-github&metric=alert_status)](https://sonarcloud.io/dashboard?id=adrianofelisberto_busca-github)
 
-[![Build Status](https://travis-ci.com/adrianofelisberto/busca-github.svg?branch=master)](https://travis-ci.com/adrianofelisberto/busca-github)
 
 # Busca GitHub
 
@@ -9,6 +8,7 @@ A aplicação tem como objetivo buscar dados de um usuário do GitHub, utilizand
 Foi feita utilizando o Framework do Angular 9.
 
 ## Dependências
+```
 busca-github@0.0.0 C:\Users\adriano\angular-workspace\busca-github
 +-- @angular-devkit/build-angular@0.901.1
 +-- @angular/animations@9.1.1
@@ -42,6 +42,7 @@ busca-github@0.0.0 C:\Users\adriano\angular-workspace\busca-github
 +-- sweetalert2@9.10.10
 +-- tslint-sonarts@1.9.0
 +-- typescript@3.8.3
+```
 
 
 ### Prerequisito
