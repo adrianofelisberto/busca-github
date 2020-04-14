@@ -81,4 +81,4 @@ npm run test
 
 ## License
 
-Esse projeto é licenciado pela GPL v3 - veja o arquivo [https://github.com/adrianofelisberto/busca-github/blob/master/LICENSE](LICENSE.md) para detalhes
+Esse projeto é licenciado pela GPL v3 - veja o arquivo [LICENSE](https://github.com/adrianofelisberto/busca-github/blob/master/LICENSE) para detalhes
