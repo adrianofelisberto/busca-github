@@ -46,7 +46,7 @@ busca-github@0.0.0 C:\Users\adriano\angular-workspace\busca-github
 ```
 
 
-### Prerequisito
+### Pré-requisito
 Instalar o [NodeJs] (https://nodejs.org/en/)
 
 
