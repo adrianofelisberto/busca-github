@@ -55,6 +55,6 @@ ___
   $ npm run test
 ```
 
-## <img width="22" src="public/iconfinder_LaWYER_2_753941.png"> License
+## <img width="18" src="public/iconfinder_LaWYER_2_753941.png"> License
 
 Este projeto é licenciado pela GPL v3 - veja o arquivo [LICENSE](https://github.com/adrianofelisberto/busca-github/blob/master/LICENSE) para detalhes
